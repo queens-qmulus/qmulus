@@ -37,13 +37,9 @@ const sectionSchema = new Schema({
 })
 
 sectionSchema.index({
-  year: 'text',
-  term: 'text',
   department: 'text',
   course_code: 'text',
   course_name: 'text',
-  units: 'text',
-  campus: 'text',
   academic_level: 'text',
 })
 

@@ -41,8 +41,8 @@ app.use((err, req, res, next) => {
   res.json({ error: error })
 })
 
-app.listen(3000, () => {
-  winston.info(`Server running at http://localhost:3000`)
-})
+// app.listen(3000, () => {
+//   winston.info(`Server running at http://localhost:3000`)
+// })
 
 export default { Server: app }
