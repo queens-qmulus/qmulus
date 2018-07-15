@@ -8,12 +8,14 @@ const newsSchema = new Schema({
   url: String,
   published: String,
   updated: String,
-  authors: [String],
+  authors: { type: [String], index: true },
   content: String,
   content_raw: String,
 })
 
-// TODO: add => authors: 'text'
-newsSchema.index({slug: 'text'})
+newsSchema.index({
+  slug: 'text',
+  authors: 'text',
+})
 
 export default mongoose.model('news', newsSchema)

@@ -42,8 +42,9 @@ sectionSchema.index({
   department: 'text',
   course_code: 'text',
   course_name: 'text',
-  academic_level: 'text',
   units: 'text',
+  campus: 'text',
+  academic_level: 'text',
 })
 
 export default mongoose.model('sections', sectionSchema)

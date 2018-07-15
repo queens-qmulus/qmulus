@@ -6,7 +6,7 @@ const textbookSchema = new Schema({
   isbn_10: String,
   isbn_13: String,
   title: String,
-  authors: [String],
+  authors: { type: [String], index: true },
   image: String,
   price_new: Number,
   price_used: Number,
@@ -22,7 +22,10 @@ const textbookSchema = new Schema({
   }],
 })
 
-// TODO: add => authors: 'text'
-textbookSchema.index({isbn_10: 'text', isbn_13: 'text'})
+textbookSchema.index({
+  isbn_10: 'text',
+  isbn_13: 'text',
+  authors: 'text',
+})
 
 export default mongoose.model('textbooks', textbookSchema)

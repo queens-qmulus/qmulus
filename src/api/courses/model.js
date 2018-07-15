@@ -26,14 +26,14 @@ const courseSchema = new Schema({
   },
 })
 
-// TODO: collection 'courses' has some 'index already set' error
-// courseSchema.index({
-//   department: 'text',
-//   course_code: 'text',
-//   course_name: 'text',
-//   campus: 'text',
-//   academic_level: 'text',
-//   units: 'text',
-// })
+// Support indexing for more efficient MongoDB lookups
+courseSchema.index({
+  department: 'text',
+  course_code: 'text',
+  course_name: 'text',
+  campus: 'text',
+  academic_level: 'text',
+  units: 'text',
+})
 
 export default mongoose.model('courses', courseSchema)
