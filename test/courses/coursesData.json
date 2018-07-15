@@ -1,0 +1,503 @@
+[
+   {
+      "CEAB":{
+         "math":0,
+         "basic_sci":0,
+         "comp_st":0,
+         "eng_sci":0,
+         "end_des":0
+      },
+      "department":"LAW",
+      "course_code":"706",
+      "course_name":"Intellectual Property",
+      "campus":"Main",
+      "description":"This course offers a general overview of intellectual property law in Canada, from a practical perspective. It explorestrade secrets and patentable inventions, how to recognize and protect trademarks, when copyright applies and when it's infringed, and reviews typical license terms.Students will learn the forms of intellectual property protection available, and why it's important to their future careers and/or business ventures.",
+      "grading_basis":"Graded",
+      "course_components":{
+         "online":"Required"
+      },
+      "requirements":"CLAW Cert",
+      "add_consent":"",
+      "drop_consent":"",
+      "academic_level":"Undergraduate Online",
+      "academic_group":"Faculty of Law",
+      "academic_org":"Law (not department specific)",
+      "units":3
+   },
+   {
+      "CEAB":{
+         "math":0,
+         "basic_sci":0,
+         "comp_st":0,
+         "eng_sci":0,
+         "end_des":0
+      },
+      "department":"MPA",
+      "course_code":"873A",
+      "course_name":"Budgets, Politics and Process",
+      "campus":"Main",
+      "description":"",
+      "grading_basis":"Graded",
+      "course_components":{
+         "lecture":"Required"
+      },
+      "requirements":"",
+      "add_consent":"Department Consent Required",
+      "drop_consent":"Department Consent Required",
+      "academic_level":"Graduate",
+      "academic_group":"School of Graduate Studies",
+      "academic_org":"School of Policy Studies",
+      "units":0
+   },
+   {
+      "CEAB":{
+         "math":0,
+         "basic_sci":0,
+         "comp_st":0,
+         "eng_sci":0,
+         "end_des":0
+      },
+      "department":"MATH",
+      "course_code":"999",
+      "course_name":"Ph. D. Thesis Research",
+      "campus":"Main",
+      "description":"",
+      "grading_basis":"Pass/Fail",
+      "course_components":{
+         "lecture":"Required"
+      },
+      "requirements":"",
+      "add_consent":"",
+      "drop_consent":"",
+      "academic_level":"Graduate",
+      "academic_group":"Faculty of Arts and Science",
+      "academic_org":"Dept of Mathematics & Stats",
+      "units":6
+   },
+   {
+      "CEAB":{
+         "math":0,
+         "basic_sci":0,
+         "comp_st":0,
+         "eng_sci":0,
+         "end_des":0
+      },
+      "department":"KNPE",
+      "course_code":"237",
+      "course_name":"Child and Adolescent Motor Development",
+      "campus":"Main",
+      "description":"This course is an exploration of behavioural and biological research on physical activity and how it relates to the psychosocial, structural, and physiological development of children between birth and approximately age 13.",
+      "grading_basis":"Graded",
+      "course_components":{
+         "lecture":"Required"
+      },
+      "requirements":"Prerequisite Level 2 or above in a PHED or KINE Plan.",
+      "add_consent":"",
+      "drop_consent":"",
+      "academic_level":"Undergraduate",
+      "academic_group":"Faculty of Arts and Science",
+      "academic_org":"School of Kinesiology & Hth St",
+      "units":3
+   },
+   {
+      "CEAB":{
+         "math":0,
+         "basic_sci":0,
+         "comp_st":0,
+         "eng_sci":0,
+         "end_des":0
+      },
+      "department":"PHIL",
+      "course_code":"859",
+      "course_name":"Philosophy Of Language I",
+      "campus":"Main",
+      "description":"Winter. A. Mercier.",
+      "grading_basis":"Graded",
+      "course_components":{
+         "seminar":"Required"
+      },
+      "requirements":"",
+      "add_consent":"",
+      "drop_consent":"",
+      "academic_level":"Graduate",
+      "academic_group":"Faculty of Arts and Science",
+      "academic_org":"Dept of Philosophy",
+      "units":3
+   },
+   {
+      "CEAB":{
+         "math":0,
+         "basic_sci":0,
+         "comp_st":0,
+         "eng_sci":0,
+         "end_des":0
+      },
+      "department":"SURP",
+      "course_code":"898",
+      "course_name":"Master's Report",
+      "campus":"Main",
+      "description":"PREREQUISITE: Permission of instructor. COREQUISITE: SURP-800 Master's Research Proposal",
+      "grading_basis":"Pass/Fail",
+      "course_components":{
+         "research":"Required"
+      },
+      "requirements":"Only SURP students",
+      "add_consent":"Department Consent Required",
+      "drop_consent":"Department Consent Required",
+      "academic_level":"Graduate",
+      "academic_group":"Faculty of Arts and Science",
+      "academic_org":"Dept of Geography & Planning",
+      "units":6
+   },
+   {
+      "CEAB":{
+         "math":0,
+         "basic_sci":0,
+         "comp_st":0,
+         "eng_sci":40,
+         "end_des":0
+      },
+      "department":"APSC",
+      "course_code":"262",
+      "course_name":"Engineering Surveying",
+      "campus":"Main",
+      "description":"This introductory course in plane surveying consists of about 16 hours of lectures, the rest of the time being spent in the field. Lecture material includes distance measurement, differential, profile and indirect leveling and use of transit, traversing and mapping. Errors, corrections and balancing are also discussed. The use of available software packages for the reduction and calculation of data is encouraged throughout the course. In the field, students practice the basic techniques of instrument use through various assignments. Careful and efficient handling of instruments and proper note-keeping are stressed. The use of state-of-the-art electronic surveying instruments is included in the field assignments wherever possible. The school is held on campus immediately following the final First Year examination in April.",
+      "grading_basis":"Graded",
+      "course_components":{
+         "field studies":"Required"
+      },
+      "requirements":"",
+      "add_consent":"",
+      "drop_consent":"",
+      "academic_level":"Undergraduate",
+      "academic_group":"Fac of Engineering & Appl Sci",
+      "academic_org":"Engineer (not dept specific)",
+      "units":3.5
+   },
+   {
+      "CEAB":{
+         "math":0,
+         "basic_sci":0,
+         "comp_st":0,
+         "eng_sci":0,
+         "end_des":0
+      },
+      "department":"GPHY",
+      "course_code":"341",
+      "course_name":"Photogrammetry",
+      "campus":"Main",
+      "description":"An intensive introduction to the art and science of 3D measurement and mapping using photographs, with a particular focus on applications in GIS, Cartography, Cultural Heritage, Urban Planning, Geology and Engineering.",
+      "grading_basis":"Graded",
+      "course_components":{
+         "laboratory":"Required",
+         "lecture":"Required"
+      },
+      "requirements":"Prerequisite Level 3 or above",
+      "add_consent":"",
+      "drop_consent":"",
+      "academic_level":"Undergraduate",
+      "academic_group":"Faculty of Arts and Science",
+      "academic_org":"Dept of Geography & Planning",
+      "units":3
+   },
+   {
+      "CEAB":{
+         "math":0,
+         "basic_sci":0,
+         "comp_st":0,
+         "eng_sci":0,
+         "end_des":0
+      },
+      "department":"ELEC",
+      "course_code":"999",
+      "course_name":"Ph. D. Thesis Research",
+      "campus":"Main",
+      "description":"",
+      "grading_basis":"Pass/Fail",
+      "course_components":{
+         "lecture":"Required"
+      },
+      "requirements":"",
+      "add_consent":"",
+      "drop_consent":"",
+      "academic_level":"Graduate",
+      "academic_group":"Fac of Engineering & Appl Sci",
+      "academic_org":"Dept of Electrical & Comp Eng",
+      "units":6
+   },
+   {
+      "CEAB":{
+         "math":0,
+         "basic_sci":0,
+         "comp_st":0,
+         "eng_sci":0,
+         "end_des":0
+      },
+      "department":"MPA",
+      "course_code":"811",
+      "course_name":"Govt.  Society & Public Policy",
+      "campus":"Main",
+      "description":"This course looks at the role of the state and the interaction between the state and society in making fundamental choices in western nations. It examines a number of theories of the state, and then explores major challenges to contemporary governance, such as globalization, nationalism, the politics of diversity, and changing conceptions of democracy.",
+      "grading_basis":"Graded",
+      "course_components":{
+         "lecture":"Required"
+      },
+      "requirements":"",
+      "add_consent":"Department Consent Required",
+      "drop_consent":"Department Consent Required",
+      "academic_level":"Graduate",
+      "academic_group":"School of Graduate Studies",
+      "academic_org":"School of Policy Studies",
+      "units":3
+   },
+   {
+      "CEAB":{
+         "math":0,
+         "basic_sci":0,
+         "comp_st":0,
+         "eng_sci":0,
+         "end_des":0
+      },
+      "department":"HIST",
+      "course_code":"867",
+      "course_name":"Social History of Modernizing Latin America, 1860-1960",
+      "campus":"Main",
+      "description":"The history of everyday life in Latin American from 1860 to 1960, a century of global economic and cultural transformation. Themes include urbanization, the \"social question\", state and class formation, gender roles, crime, science and technology. Explores social history as a discipline. (May be offered jointly with HIST-462.)",
+      "grading_basis":"Graded",
+      "course_components":{
+         "seminar":"Required"
+      },
+      "requirements":"",
+      "add_consent":"Department Consent Required",
+      "drop_consent":"Department Consent Required",
+      "academic_level":"Graduate",
+      "academic_group":"Faculty of Arts and Science",
+      "academic_org":"Dept of History",
+      "units":3
+   },
+   {
+      "CEAB":{
+         "math":0,
+         "basic_sci":0,
+         "comp_st":0,
+         "eng_sci":0,
+         "end_des":0
+      },
+      "department":"PHYS",
+      "course_code":"882",
+      "course_name":"Nonlinear And Quantum Optics",
+      "campus":"Main",
+      "description":"The concepts of nonlinear optics are central to most modern research in quantum optics and light matter interactions. Nonlinear optics is the discipline in physics in which the electric polarization density of the medium is studied as a nonlinear function of the light field. Quantum optics concerns the interaction of light with quantum systems, and the quantum nature of light itself. Recent years have seen a rapid growth of activity in research involving both nonlinear and quantum optics, enabled in part by new condensed matter materials (especially semiconductor nanostructures) and ultrafast laser systems. This course will introduce the basic principles of nonlinear and quantum optics and make a connection to a selection of modern research topics in these areas.",
+      "grading_basis":"Graded",
+      "course_components":{
+         "lecture":"Required"
+      },
+      "requirements":"",
+      "add_consent":"",
+      "drop_consent":"",
+      "academic_level":"Graduate",
+      "academic_group":"Faculty of Arts and Science",
+      "academic_org":"Dept of Physics, Eng Ph & Astr",
+      "units":3
+   },
+   {
+      "CEAB":{
+         "math":0,
+         "basic_sci":0,
+         "comp_st":0,
+         "eng_sci":0,
+         "end_des":0
+      },
+      "department":"ENGL",
+      "course_code":"258",
+      "course_name":"Jacobean Shakespeare",
+      "campus":"Main",
+      "description":"A study of eight of Shakespeare¿s plays in relation to the social, intellectual, and political climate of the Jacobean period and with reference to theatrical production.",
+      "grading_basis":"Graded",
+      "course_components":{
+         "lecture":"Required"
+      },
+      "requirements":"PREREQUISITE A grade of C in 6.0 units from ENGL100 (or ENGL110)\r\nEXCLUSION no more than 6.0 units from ENGL256/6.0; 257/3.0; 258/3.0\r\nEquivalency ENGL 226.",
+      "add_consent":"",
+      "drop_consent":"",
+      "academic_level":"Undergraduate",
+      "academic_group":"Faculty of Arts and Science",
+      "academic_org":"Dept of English Language & Lit",
+      "units":3
+   },
+   {
+      "CEAB":{
+         "math":0,
+         "basic_sci":0,
+         "comp_st":0,
+         "eng_sci":0,
+         "end_des":0
+      },
+      "department":"CIVL",
+      "course_code":"899",
+      "course_name":"Master's Thesis Research",
+      "campus":"Main",
+      "description":"See Graduate School regulations concerning thesis requirements.",
+      "grading_basis":"Pass/Fail",
+      "course_components":{
+         "lecture":"Required"
+      },
+      "requirements":"",
+      "add_consent":"",
+      "drop_consent":"",
+      "academic_level":"Graduate",
+      "academic_group":"Fac of Engineering & Appl Sci",
+      "academic_org":"Dept of Civil Engineering",
+      "units":6
+   },
+   {
+      "CEAB":{
+         "math":0,
+         "basic_sci":0,
+         "comp_st":0,
+         "eng_sci":0,
+         "end_des":0
+      },
+      "department":"CONT",
+      "course_code":"537",
+      "course_name":"French As A Sec Lang - Pt. 2",
+      "campus":"None",
+      "description":"",
+      "grading_basis":"Graded",
+      "course_components":{
+         "online":"Required"
+      },
+      "requirements":"",
+      "add_consent":"Department Consent Required",
+      "drop_consent":"",
+      "academic_level":"Non-Credit",
+      "academic_group":"Faculty of Education",
+      "academic_org":"Dept Continuing Teacher Educ",
+      "units":6
+   },
+   {
+      "CEAB":{
+         "math":0,
+         "basic_sci":0,
+         "comp_st":0,
+         "eng_sci":0,
+         "end_des":0
+      },
+      "department":"ENPH",
+      "course_code":"455A",
+      "course_name":"Engineering Physics Thesis",
+      "campus":"Main",
+      "description":"Students will be assigned individual design topics of the type a practicing engineering physicist might expect to encounter. They must develop a solution under the supervision of a faculty member, and give oral and written presentations to an examining committee. Grades will be based on the quality of the analysis of the problem, the proposed solution, and the written and oral presentations. The demonstration of effective written and oral communications skills is required.",
+      "grading_basis":"Graded",
+      "course_components":{
+         "individual study":"Required"
+      },
+      "requirements":"PREREQUISITES: ENPH 351 (PHYS 351) OR ENPH 354. Must be registered in a BSCE or BASC Academic Program.",
+      "add_consent":"",
+      "drop_consent":"",
+      "academic_level":"Undergraduate",
+      "academic_group":"Faculty of Arts and Science",
+      "academic_org":"Dept of Physics, Eng Ph & Astr",
+      "units":0
+   },
+   {
+      "CEAB":{
+         "math":0,
+         "basic_sci":0,
+         "comp_st":0,
+         "eng_sci":0,
+         "end_des":0
+      },
+      "department":"PME",
+      "course_code":"813",
+      "course_name":"Knowledge Translation and Mobilization",
+      "campus":"Main",
+      "description":"Knowledge translation (KT) and mobilization (KMb) includes efforts to strengthen connections between research, policy and practice in public service sectors. This course looks at the theory, science and practice of KT/ KMb in order to enable practitioners to find, share, assess and apply evidence in their particular professional setting. Offered jointly with GDPI- 813*. EXCLUSION: GDPI-813*",
+      "grading_basis":"Graded",
+      "course_components":{
+         "seminar":"Required"
+      },
+      "requirements":"Restricted to PME",
+      "add_consent":"",
+      "drop_consent":"",
+      "academic_level":"Graduate",
+      "academic_group":"Faculty of Education",
+      "academic_org":"Education (not dept specific)",
+      "units":3
+   },
+   {
+      "CEAB":{
+         "math":0,
+         "basic_sci":0,
+         "comp_st":0,
+         "eng_sci":0,
+         "end_des":0
+      },
+      "department":"PHYS",
+      "course_code":"928",
+      "course_name":"Many-Body Quantum Theory",
+      "campus":"Main",
+      "description":"",
+      "grading_basis":"Graded",
+      "course_components":{
+         "lecture":"Required"
+      },
+      "requirements":"",
+      "add_consent":"",
+      "drop_consent":"",
+      "academic_level":"Graduate",
+      "academic_group":"Faculty of Arts and Science",
+      "academic_org":"Dept of Physics, Eng Ph & Astr",
+      "units":3
+   },
+   {
+      "CEAB":{
+         "math":0,
+         "basic_sci":0,
+         "comp_st":0,
+         "eng_sci":0,
+         "end_des":0
+      },
+      "department":"LATN",
+      "course_code":"714",
+      "course_name":"Latin-Life  Letters",
+      "campus":"Main",
+      "description":"",
+      "grading_basis":"Graded",
+      "course_components":{
+         "lecture":"Required"
+      },
+      "requirements":"",
+      "add_consent":"",
+      "drop_consent":"",
+      "academic_level":"Graduate",
+      "academic_group":"Faculty of Arts and Science",
+      "academic_org":"Dept of Classics",
+      "units":6
+   },
+   {
+      "CEAB":{
+         "math":0,
+         "basic_sci":0,
+         "comp_st":0,
+         "eng_sci":0,
+         "end_des":0
+      },
+      "department":"ARTL",
+      "course_code":"810",
+      "course_name":"Arts Leadership Capstone Project",
+      "campus":"Main",
+      "description":"Students will be required to secure their own work practicum, and the program has incorporated a budget for Genovese, Vanderhoof and Associates (who specialize in arts placements and who have a track recording in internship placements) to assist them in this process. Students will report to a faculty supervisor from the School of Drama and Music. The practicum / research report represents the culmination of the student¿s learning to apply and integrate the knowledge garnered from the program. In addition to obtaining experiential learning within an arts organization, students will write a research project report that will include an in-depth strategic review encompassing artistic vision, audience development, revenue and business development, governance and human resources, financial analysis and the external environment. This research project report will also include recommendations that can contribute to the future success of the organization. Through their practicum, the Masters students will gain practical experience and apply their theoretical knowledge; observe and analyze problems and solutions in a professional arts setting; interact",
+      "grading_basis":"Graded",
+      "course_components":{
+         "seminar":"Required"
+      },
+      "requirements":"",
+      "add_consent":"Department Consent Required",
+      "drop_consent":"Department Consent Required",
+      "academic_level":"Graduate",
+      "academic_group":"School of Graduate Studies",
+      "academic_org":"Dan School of Drama and Music",
+      "units":6
+   }
+]

@@ -1,0 +1,56 @@
+{
+  "name": "qmulus",
+  "version": "0.0.1",
+  "description": "Queen's Open Data API.",
+  "main": "index.js",
+  "author": "Alex Adusei",
+  "license": "MIT",
+  "homepage": "https://github.com/alexadusei/qmulus#readme",
+  "engines": {
+    "node": "10.6.x",
+    "npm": "6.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexadusei/qmulus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alexadusei/qmulus/issues"
+  },
+  "keywords": [
+    "qmulus",
+    "api",
+    "data",
+    "express",
+    "queens",
+    "queen's",
+    "queen's university"
+  ],
+  "ava": {
+    "require": [
+      "esm"
+    ]
+  },
+  "scripts": {
+    "dev": "nodemon -r esm src/index",
+    "test": "ava --verbose",
+    "lint": "eslint src test"
+  },
+  "dependencies": {
+    "esm": "^3.0.66",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.3",
+    "winston": "^3.0.0"
+  },
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "eslint": "^5.1.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "nodemon": "^1.18.1",
+    "supertest": "^3.1.0"
+  }
+}

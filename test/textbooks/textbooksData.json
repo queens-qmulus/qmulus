@@ -1,0 +1,584 @@
+[
+   {
+       "authors":[
+           "Craighead"
+       ],
+       "isbn_10":null,
+       "isbn_13":"9781119221739",
+       "title":"Psychopathology",
+       "image":"https://images-na.ssl-images-amazon.com/images/I/41IOBKUxN9L._SL160_.jpg",
+       "price_new":128.0,
+       "price_used":96.0,
+       "status":"REQUIRED",
+       "courses":[
+           {
+               "year":"2018",
+               "term":"Winter",
+               "department":"PSYC",
+               "course_code":"399",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=PSYCB03619",
+               "instructor":"Kate Harkness"
+           }
+       ]
+   },
+   {
+       "authors":[
+           "De Moras"
+       ],
+       "isbn_10":null,
+       "isbn_13":"9780176473495",
+       "title":"Guide de l'ecriture",
+       "image":"https://images-na.ssl-images-amazon.com/images/I/51sgypXnGvL._SL160_.jpg",
+       "price_new":52.95,
+       "price_used":39.71,
+       "status":"REQUIRED",
+       "courses":[
+           {
+               "year":"2018",
+               "term":"Winter",
+               "department":"FREN",
+               "course_code":"331",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=FRENB03530",
+               "instructor":"Francesca Fiore"
+           }
+       ]
+   },
+   {
+       "authors":[
+           "Tavares"
+       ],
+       "isbn_10":null,
+       "isbn_13":"9789727579341",
+       "title":"Portugues XXI w/workbook & CD",
+       "image":"https://images-na.ssl-images-amazon.com/images/I/51E%2BAdIE20L._SL160_.jpg",
+       "price_new":74.95,
+       "price_used":52.46,
+       "status":"REQUIRED",
+       "courses":[
+           {
+               "year":"2018",
+               "term":"Winter",
+               "department":"PORT",
+               "course_code":"104",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=PORTB03533",
+               "instructor":"Antonio Macedo"
+           }
+       ]
+   },
+   {
+       "authors":[
+           "Lazzarino"
+       ],
+       "isbn_10":null,
+       "isbn_13":"9781259664687",
+       "title":"Prego with Wkbk & Lab Manual",
+       "image":"https://images-na.ssl-images-amazon.com/images/I/41ylydxw%2BWL._SL160_.jpg",
+       "price_new":149.95,
+       "price_used":null,
+       "status":"REQUIRED",
+       "courses":[
+           {
+               "year":"2018",
+               "term":"Winter",
+               "department":"ITLN",
+               "course_code":"111",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=ITLNB03722",
+               "instructor":"Elena Cecchetto"
+           },
+           {
+               "year":"2018",
+               "term":"Winter",
+               "department":"ITLN",
+               "course_code":"112",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=ITLNB03723",
+               "instructor":"Brigitte Bachmann"
+           }
+       ]
+   },
+   {
+       "authors":[
+           "Sidgwick"
+       ],
+       "isbn_10":null,
+       "isbn_13":"9780915145287",
+       "title":"Methods of Ethics",
+       "image":"https://images-na.ssl-images-amazon.com/images/I/41L8ciKntFL._SL160_.jpg",
+       "price_new":22.59,
+       "price_used":16.95,
+       "status":"REQUIRED",
+       "courses":[
+           {
+               "year":"2018",
+               "term":"Winter",
+               "department":"PHIL",
+               "course_code":"257",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=PHIL19039",
+               "instructor":"Rahul Kumar"
+           }
+       ]
+   },
+   {
+       "authors":[
+           "Ethier"
+       ],
+       "isbn_10":null,
+       "isbn_13":"9780195446173",
+       "title":"Ear Training and Sight Singing",
+       "image":"https://images-na.ssl-images-amazon.com/images/I/517W84XYmZL._SL160_.jpg",
+       "price_new":137.95,
+       "price_used":null,
+       "status":"REQUIRED",
+       "courses":[
+           {
+               "year":"2018",
+               "term":"Fall",
+               "department":"MUSC",
+               "course_code":"127",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=MUSC19676",
+               "instructor":"Cynthia Tormann"
+           },
+           {
+               "year":"2018",
+               "term":"Winter",
+               "department":"MUSC",
+               "course_code":"127",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=MUSC19676",
+               "instructor":"Cynthia Tormann"
+           }
+       ]
+   },
+   {
+       "authors":[
+           ""
+       ],
+       "isbn_10":null,
+       "isbn_13":"88880092847",
+       "title":"EDST238/FOCI238 2 year licence",
+       "image":"",
+       "price_new":111.25,
+       "price_used":null,
+       "status":"RECOMMENDED",
+       "courses":[
+           {
+               "year":"2017",
+               "term":"Fall",
+               "department":"EDST",
+               "course_code":"238",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=EDSTB03418",
+               "instructor":"Kristy Timmons"
+           },
+           {
+               "year":"2017",
+               "term":"Winter",
+               "department":"EDST",
+               "course_code":"238",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=EDSTB03418",
+               "instructor":"Kristy Timmons"
+           },
+           {
+               "year":"2017",
+               "term":"Fall",
+               "department":"FOCI",
+               "course_code":"238",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=FOCIB03419",
+               "instructor":"Kristy Timmons"
+           },
+           {
+               "year":"2017",
+               "term":"Winter",
+               "department":"FOCI",
+               "course_code":"238",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=FOCIB03419",
+               "instructor":"Kristy Timmons"
+           }
+       ]
+   },
+   {
+       "authors":[
+           "Kernighan"
+       ],
+       "isbn_10":null,
+       "isbn_13":"9780131103627",
+       "title":"C Programming Language",
+       "image":"https://images-na.ssl-images-amazon.com/images/I/41gHB8KelXL._SL160_.jpg",
+       "price_new":70.0,
+       "price_used":52.5,
+       "status":"REQUIRED",
+       "courses":[
+           {
+               "year":"2018",
+               "term":"Fall",
+               "department":"CISC",
+               "course_code":"220",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=CISC19488",
+               "instructor":"Margaret Lamb"
+           }
+       ]
+   },
+   {
+       "authors":[
+           "Bennett"
+       ],
+       "isbn_10":null,
+       "isbn_13":"9780072903317",
+       "title":"Medieval Life Cecilia Penifade",
+       "image":"https://images-na.ssl-images-amazon.com/images/I/41kyUadNNnL._SL160_.jpg",
+       "price_new":50.95,
+       "price_used":38.21,
+       "status":"REQUIRED",
+       "courses":[
+           {
+               "year":"2018",
+               "term":"Winter",
+               "department":"HIST",
+               "course_code":"226",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=HIST19008",
+               "instructor":"Abigail Agresta"
+           }
+       ]
+   },
+   {
+       "authors":[
+           "Asbridge"
+       ],
+       "isbn_10":null,
+       "isbn_13":"9780060787295",
+       "title":"Crusades",
+       "image":"https://images-na.ssl-images-amazon.com/images/I/51c32NYZEbL._SL160_.jpg",
+       "price_new":24.84,
+       "price_used":18.62,
+       "status":"REQUIRED",
+       "courses":[
+           {
+               "year":"2017",
+               "term":"Fall",
+               "department":"HIST",
+               "course_code":"430",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=HIST18213",
+               "instructor":"Richard Greenfield"
+           },
+           {
+               "year":"2017",
+               "term":"Winter",
+               "department":"HIST",
+               "course_code":"430",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=HIST18213",
+               "instructor":"Richard Greenfield"
+           },
+           {
+               "year":"2017",
+               "term":"Fall",
+               "department":"HIST",
+               "course_code":"828",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=HIST18232A",
+               "instructor":"Richard Greenfield"
+           },
+           {
+               "year":"2017",
+               "term":"Winter",
+               "department":"HIST",
+               "course_code":"828",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=HIST18232A",
+               "instructor":"Richard Greenfield"
+           }
+       ]
+   },
+   {
+       "authors":[
+           "Austen"
+       ],
+       "isbn_10":null,
+       "isbn_13":"9781551114798",
+       "title":"Northanger Abbey",
+       "image":"https://images-na.ssl-images-amazon.com/images/I/41in7hMQl2L._SL160_.jpg",
+       "price_new":12.95,
+       "price_used":9.71,
+       "status":"REQUIRED",
+       "courses":[
+           {
+               "year":"2018",
+               "term":"Winter",
+               "department":"ENGL",
+               "course_code":"841",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=ENGL19258",
+               "instructor":"Leslie Ritchie"
+           }
+       ]
+   },
+   {
+       "authors":[
+           "Cowen"
+       ],
+       "isbn_10":null,
+       "isbn_13":"9780470671726",
+       "title":"History of Life",
+       "image":"https://images-na.ssl-images-amazon.com/images/I/61OMhaaVXoL._SL160_.jpg",
+       "price_new":117.95,
+       "price_used":88.46,
+       "status":"RECOMMENDED",
+       "courses":[
+           {
+               "year":"2018",
+               "term":"Fall",
+               "department":"GEOL",
+               "course_code":"107",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=GEOL19469",
+               "instructor":"Guy Narbonne"
+           }
+       ]
+   },
+   {
+       "authors":[
+           "Bryand"
+       ],
+       "isbn_10":null,
+       "isbn_13":"9780134092669",
+       "title":"Computer Systems A Progr Persp",
+       "image":"https://images-na.ssl-images-amazon.com/images/I/41AoUQujOCL._SL160_.jpg",
+       "price_new":203.95,
+       "price_used":152.96,
+       "status":"REQUIRED",
+       "courses":[
+           {
+               "year":"2018",
+               "term":"Winter",
+               "department":"CISC",
+               "course_code":"221",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=CISC18938",
+               "instructor":"Dave Dove"
+           }
+       ]
+   },
+   {
+       "authors":[
+           "Greenblatt"
+       ],
+       "isbn_10":null,
+       "isbn_13":"9780393913002",
+       "title":"Norton Anth Engl Lit Vol 1-ABC",
+       "image":"https://images-na.ssl-images-amazon.com/images/I/51HncX--j7L._SL160_.jpg",
+       "price_new":78.75,
+       "price_used":59.06,
+       "status":"REQUIRED",
+       "courses":[
+           {
+               "year":"2017",
+               "term":"Fall",
+               "department":"ENGL",
+               "course_code":"200-001",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=ENGL18239",
+               "instructor":"Leslie Ritchie"
+           },
+           {
+               "year":"2017",
+               "term":"Winter",
+               "department":"ENGL",
+               "course_code":"200-001",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=ENGL18239",
+               "instructor":"Leslie Ritchie"
+           },
+           {
+               "year":"2017",
+               "term":"Fall",
+               "department":"ENGL",
+               "course_code":"200-002",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=ENGL18459",
+               "instructor":"Scott-morgan Straker"
+           },
+           {
+               "year":"2017",
+               "term":"Winter",
+               "department":"ENGL",
+               "course_code":"200-002",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=ENGL18459",
+               "instructor":"Scott-morgan Straker"
+           }
+       ]
+   },
+   {
+       "authors":[
+           "Abelson"
+       ],
+       "isbn_10":null,
+       "isbn_13":"9780805805284",
+       "title":"Statistics as Principled Argum",
+       "image":"https://images-na.ssl-images-amazon.com/images/I/41rHdfirTYL._SL160_.jpg",
+       "price_new":55.9,
+       "price_used":null,
+       "status":"RECOMMENDED",
+       "courses":[
+           {
+               "year":"2018",
+               "term":"Winter",
+               "department":"PSYC",
+               "course_code":"302",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=PSYC19138",
+               "instructor":"Tom Hollenstein"
+           }
+       ]
+   },
+   {
+       "authors":[
+           "Zorach"
+       ],
+       "isbn_10":null,
+       "isbn_13":"9780934034432",
+       "title":"English Grammar for German",
+       "image":"https://images-na.ssl-images-amazon.com/images/I/41X8r0mk3HL._SL160_.jpg",
+       "price_new":26.51,
+       "price_used":null,
+       "status":"REQUIRED",
+       "courses":[
+           {
+               "year":"2018",
+               "term":"Winter",
+               "department":"GRMN",
+               "course_code":"202",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=GRMN19283",
+               "instructor":"Hosek, Jennifer"
+           }
+       ]
+   },
+   {
+       "authors":[
+           "Figliola"
+       ],
+       "isbn_10":null,
+       "isbn_13":"9781118881279",
+       "title":"Theory and Design for Mech Mea",
+       "image":"https://images-na.ssl-images-amazon.com/images/I/41QDL799PML._SL160_.jpg",
+       "price_new":204.95,
+       "price_used":153.71,
+       "status":"RECOMMENDED",
+       "courses":[
+           {
+               "year":"2018",
+               "term":"Fall",
+               "department":"MECH",
+               "course_code":"217",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=MECH19593",
+               "instructor":"Richard Sellens"
+           }
+       ]
+   },
+   {
+       "authors":[
+           "Schaums"
+       ],
+       "isbn_10":null,
+       "isbn_13":"9780071615860",
+       "title":"Discrete Mathematics",
+       "image":"https://images-na.ssl-images-amazon.com/images/I/51DSVg0BapL._SL160_.jpg",
+       "price_new":27.78,
+       "price_used":20.96,
+       "status":"REQUIRED",
+       "courses":[
+           {
+               "year":"2018",
+               "term":"Winter",
+               "department":"CISC",
+               "course_code":"102",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=CISC18939",
+               "instructor":"Jacob Peoples"
+           },
+           {
+               "year":"2018",
+               "term":"Summer",
+               "department":"CISC",
+               "course_code":"102-700",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=CISC19465",
+               "instructor":"Robin Dawes"
+           },
+           {
+               "year":"2018",
+               "term":"Fall",
+               "department":"CISC",
+               "course_code":"102",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=CISC19492",
+               "instructor":"David Rappaport"
+           }
+       ]
+   },
+   {
+       "authors":[
+           ""
+       ],
+       "isbn_10":null,
+       "isbn_13":"88880088905",
+       "title":"POF319 Recueil de textes v2.0",
+       "image":"",
+       "price_new":41.5,
+       "price_used":null,
+       "status":"RECOMMENDED",
+       "courses":[
+           {
+               "year":"2018",
+               "term":"Winter",
+               "department":"POF",
+               "course_code":"319",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=POF19001",
+               "instructor":"Rmc, Rmc"
+           }
+       ]
+   },
+   {
+       "authors":[
+           "Ragan"
+       ],
+       "isbn_10":null,
+       "isbn_13":"9780134586304",
+       "title":"Macroecon/Microecon+MyEconLabs",
+       "image":"",
+       "price_new":199.95,
+       "price_used":null,
+       "status":"REQUIRED",
+       "courses":[
+           {
+               "year":"2017",
+               "term":"Fall",
+               "department":"ECON",
+               "course_code":"110",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=ECONB03390",
+               "instructor":"Ian Cromb"
+           },
+           {
+               "year":"2017",
+               "term":"Winter",
+               "department":"ECON",
+               "course_code":"110",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=ECONB03390",
+               "instructor":"Ian Cromb"
+           }
+       ]
+   },
+   {
+       "authors":[
+           "Prince"
+       ],
+       "isbn_10":null,
+       "isbn_13":"9780140437492",
+       "title":"History of Mary Prince",
+       "image":"",
+       "price_new":18.89,
+       "price_used":14.17,
+       "status":"REQUIRED",
+       "courses":[
+           {
+               "year":"2017",
+               "term":"Fall",
+               "department":"ENGL",
+               "course_code":"356",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=ENGL18152",
+               "instructor":"Sally Brooke Cameron"
+           },
+           {
+               "year":"2017",
+               "term":"Winter",
+               "department":"ENGL",
+               "course_code":"356",
+               "url":"https://www.campusbookstore.com/textbooks/search-engine/results?Course=ENGL18152",
+               "instructor":"Sally Brooke Cameron"
+           }
+       ]
+   }
+]

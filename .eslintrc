@@ -1,0 +1,8 @@
+{
+  "extends": ["eslint:recommended", "standard"],
+  "rules": {
+    "comma-dangle": [2, "always-multiline"],
+    "max-len": ["error", { "code": 80 }],
+    "prefer-const": "error"
+  }
+}
