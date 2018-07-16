@@ -28,7 +28,7 @@
   ],
   "scripts": {
     "dev": "nodemon -r esm bin/dev",
-    "test": "nyc --reporter=html --reporter=text ava",
+    "test": "nyc ava --verbose",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint src test bin/*"
   },
