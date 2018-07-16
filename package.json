@@ -26,31 +26,46 @@
     "queen's",
     "queen's university"
   ],
+  "scripts": {
+    "dev": "nodemon -r esm bin/dev",
+    "test": "nyc --reporter=html --reporter=text ava",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "lint": "eslint src test bin/*"
+  },
   "ava": {
     "require": [
       "esm"
+    ],
+    "files": [
+      "test/*"
     ]
   },
-  "scripts": {
-    "dev": "nodemon -r esm src/index",
-    "test": "ava --verbose",
-    "lint": "eslint src test"
+  "nyc": {
+    "exclude": [
+      "src/index.js"
+    ]
   },
   "dependencies": {
-    "esm": "^3.0.66",
+    "compression": "^1.7.3",
+    "esm": "^3.0.71",
     "express": "^4.16.3",
+    "express-limiter": "^1.6.1",
+    "helmet": "^3.12.1",
     "mongoose": "^5.2.3",
+    "redis": "^2.8.0",
     "winston": "^3.0.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",
+    "coveralls": "^3.0.2",
     "eslint": "^5.1.0",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
-    "nodemon": "^1.18.1",
+    "nodemon": "^1.18.2",
+    "nyc": "^12.0.2",
     "supertest": "^3.1.0"
   }
 }
