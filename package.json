@@ -42,17 +42,18 @@
   },
   "nyc": {
     "exclude": [
-      "src/index.js"
+      "src/index.js",
+      "src/utils/index.js"
     ]
   },
   "dependencies": {
     "compression": "^1.7.3",
     "esm": "^3.0.71",
     "express": "^4.16.3",
-    "express-limiter": "^1.6.1",
+    "express-rate-limit": "^2.11.0",
     "helmet": "^3.12.1",
+    "memory-cache": "^0.2.0",
     "mongoose": "^5.2.3",
-    "redis": "^2.8.0",
     "winston": "^3.0.0"
   },
   "devDependencies": {

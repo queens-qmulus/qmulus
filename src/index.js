@@ -1,8 +1,6 @@
-import client from 'redis'
 import compression from 'compression'
 import express from 'express'
 import helmet from 'helmet'
-import limiter from 'express-limiter'
 import mongoose from 'mongoose'
 import winston from 'winston'
 
@@ -13,42 +11,32 @@ import news from './api/news'
 import sections from './api/sections'
 import textbooks from './api/textbooks'
 
-const test = process.argv.join().match('/ava/')
-const URI = process.env.QMULUS_MONGO_URI || 'mongodb://localhost:27017/qmulus'
-const redisClient = client.createClient()
-const version = 'v1'
+import utils from './utils'
 
 const app = express()
-const rateLimiter = limiter(app, redisClient)
+const test = process.argv.join().match('/ava/')
+const URI = process.env.QMULUS_MONGO_URI || 'mongodb://localhost:27017/qmulus'
+const { cache, rateLimiter, checkRateLimit, version } = utils
 
+// MongoDB connection
 mongoose.connect(URI, { useNewUrlParser: true }, err => {
   if (err) throw new Error('Connection failed')
   if (!test) winston.info('Connected to database')
 })
 
-// API rate limiting
-rateLimiter({
-  path: '*',
-  method: 'get',
-  lookup: ['connection.remoteAddress'],
-  total: 1000, // 1000 requests
-  expire: 1000 * 60 * 60, // per hour
-  onRateLimited: (req, res, next) => {
-    next({ status: 429, message: 'API rate limit exceeded' })
-  },
-})
-
 // Third-party middleware
 app.use(helmet())
 app.use(compression())
+app.use(rateLimiter)
 
 // API routes
-app.use(`/${version}/buildings`, buildings)
-app.use(`/${version}/courses`, courses)
-app.use(`/${version}/departments`, departments)
-app.use(`/${version}/news`, news)
-app.use(`/${version}/sections`, sections)
-app.use(`/${version}/textbooks`, textbooks)
+app.use(`/${version}/buildings`, cache(), buildings)
+app.use(`/${version}/courses`, cache(), courses)
+app.use(`/${version}/departments`, cache(), departments)
+app.use(`/${version}/news`, cache(), news)
+app.use(`/${version}/sections`, cache(), sections)
+app.use(`/${version}/textbooks`, cache(), textbooks)
+app.get(`/${version}/rate_limit`, checkRateLimit)
 
 // Error handlers
 app.use((req, res, next) => {

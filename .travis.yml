@@ -12,7 +12,6 @@ cache:
 
 services:
   - mongodb
-  - redis-server
 
 install:
   - npm install

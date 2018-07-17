@@ -6,6 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Runtime data
+tmp
 pids
 *.pid
 *.seed
@@ -59,6 +60,3 @@ typings/
 
 # next.js build output
 .next
-
-# Redis
-dump.rdb
