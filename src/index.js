@@ -2,7 +2,7 @@ import compression from 'compression'
 import express from 'express'
 import helmet from 'helmet'
 import mongoose from 'mongoose'
-import winston from 'winston'
+import morgan from 'morgan'
 
 import buildings from './api/buildings'
 import courses from './api/courses'
@@ -12,21 +12,23 @@ import sections from './api/sections'
 import textbooks from './api/textbooks'
 
 import utils from './utils'
+import logger from './utils/logger'
 
 const app = express()
 const test = process.argv.join().match('/ava/')
 const URI = process.env.QMULUS_MONGO_URI || 'mongodb://localhost:27017/qmulus'
-const { cache, rateLimiter, checkRateLimit, version } = utils
+const { cache, rateLimiter, checkRateLimit, version, morganFormat } = utils
 
 // MongoDB connection
 mongoose.connect(URI, { useNewUrlParser: true }, err => {
   if (err) throw new Error('Connection failed')
-  if (!test) winston.info('Connected to database')
+  if (!test) logger.info('Connected to database')
 })
 
 // Third-party middleware
 app.use(helmet())
 app.use(compression())
+app.use(morgan(morganFormat, { stream: logger.stream }))
 app.use(rateLimiter)
 
 // API routes

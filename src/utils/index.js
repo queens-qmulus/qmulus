@@ -51,4 +51,8 @@ export default {
   checkRateLimit: checkRateLimit,
   rateLimiter: rateLimiter,
   version: 'v1',
+
+  // Standard Apache output, except for datetime, which is already included
+  morganFormat: ':remote-addr - :remote-user ":method :url HTTP/' +
+  ':http-version" :status :res[content-length] ":referrer" ":user-agent"',
 }
