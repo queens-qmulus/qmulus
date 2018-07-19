@@ -28,8 +28,9 @@ mongoose.connect(URI, { useNewUrlParser: true }, err => {
 // Third-party middleware
 app.use(helmet())
 app.use(compression())
-app.use(morgan(morganFormat, { stream: logger.stream }))
 app.use(rateLimiter)
+
+if (!test) app.use(morgan(morganFormat, { stream: logger.stream }))
 
 // API routes
 app.use(`/${version}/buildings`, cache(), buildings)
