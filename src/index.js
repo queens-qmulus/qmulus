@@ -31,6 +31,8 @@ app.use(compression())
 app.use(morgan(morganFormat, { stream: logger.stream }))
 app.use(rateLimiter)
 
+if (!test) app.use(morgan(morganFormat, { stream: logger.stream }))
+
 // API routes
 app.use(`/${version}/buildings`, cache(), buildings)
 app.use(`/${version}/courses`, cache(), courses)

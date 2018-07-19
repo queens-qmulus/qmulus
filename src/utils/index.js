@@ -46,13 +46,14 @@ const checkRateLimit = (req, res, next) => {
   res.json({ limit: limit, remaining: remaining })
 }
 
+// Standard Apache output, except for datetime, which is already included
+const format = ':remote-addr - :remote-user ":method :url HTTP/:http-version"' +
+' :status :res[content-length] ":referrer" ":user-agent"'
+
 export default {
   cache: cache,
   checkRateLimit: checkRateLimit,
   rateLimiter: rateLimiter,
   version: 'v1',
-
-  // Standard Apache output, except for datetime, which is already included
-  morganFormat: ':remote-addr - :remote-user ":method :url HTTP/' +
-  ':http-version" :status :res[content-length] ":referrer" ":user-agent"',
+  morganFormat: process.env.NODE_ENV === 'production' ? format : 'dev',
 }
