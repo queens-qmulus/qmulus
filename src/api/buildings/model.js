@@ -16,10 +16,11 @@ const buildingSchema = new Schema({
 
 // Support indexing for more efficient MongoDB lookups
 buildingSchema.index({
-  id: 'text',
-  code: 'text',
-  name: 'text',
+  address: 'text',
   campus: 'text',
+  code: 'text',
+  id: 'text',
+  name: 'text',
 })
 
 export default mongoose.model('buildings', buildingSchema)

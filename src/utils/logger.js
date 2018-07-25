@@ -34,11 +34,15 @@ const logger = winston.createLogger({
 
 winston.addColors(customLevels)
 
-logger.stream = {
+// Standard Apache output, except for datetime, which is already included
+const format = ':remote-addr - :remote-user ":method :url HTTP/:http-version"' +
+' :status :res[content-length] ":referrer" ":user-agent"'
+
+logger.morganFormat = process.env.NODE_ENV === 'production' ? format : 'dev'
+logger.winstonStream = {
   write: (message, encoding) => {
-    // use the 'info' log level so the output will be picked up by both
-    // transports
-    logger.info(message)
+    // remove Morgan's newline
+    logger.info(message.split('\n')[0])
   },
 }
 

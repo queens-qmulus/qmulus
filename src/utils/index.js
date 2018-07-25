@@ -1,5 +1,6 @@
-import mcache from 'memory-cache'
 import RateLimit from 'express-rate-limit'
+
+const version = 'v1'
 
 // API rate limiting
 const rateLimiter = new RateLimit({
@@ -12,32 +13,6 @@ const rateLimiter = new RateLimit({
   },
 })
 
-// Server-side caching
-const cache = () => {
-  // 30 minute cache duration
-  const duration = 1000 * 60 * 30
-
-  return (req, res, next) => {
-    const key = req.originalUrl
-    const cachedDocs = mcache.get(key)
-
-    // Return cached result if found
-    if (cachedDocs) {
-      res.status(304).json(cachedDocs)
-      return
-    }
-
-    // Pass updated res.json function to router, which updates the cache when
-    // the callback is executed
-    res.sendJSON = res.json
-    res.json = (docs) => {
-      mcache.put(key, docs, duration)
-      res.sendJSON(docs)
-    }
-    next()
-  }
-}
-
 const checkRateLimit = (req, res, next) => {
   const headers = res.getHeaders()
   const limit = headers['x-ratelimit-limit']
@@ -46,14 +21,17 @@ const checkRateLimit = (req, res, next) => {
   res.json({ limit: limit, remaining: remaining })
 }
 
-// Standard Apache output, except for datetime, which is already included
-const format = ':remote-addr - :remote-user ":method :url HTTP/:http-version"' +
-' :status :res[content-length] ":referrer" ":user-agent"'
+const showAvailableUrls = (req, res, next) => {
+  const url = `${req.protocol}://${req.get('host')}/${version}`
 
-export default {
-  cache: cache,
-  checkRateLimit: checkRateLimit,
-  rateLimiter: rateLimiter,
-  version: 'v1',
-  morganFormat: process.env.NODE_ENV === 'production' ? format : 'dev',
+  res.json({
+    buildingsUrl: `${url}/buildings`,
+    coursesUrl: `${url}/courses`,
+    departmentsUrl: `${url}/departments`,
+    newsUrl: `${url}/news`,
+    sectionsUrl: `${url}/sections`,
+    textbooksUrl: `${url}/textbooks`,
+  })
 }
+
+export default { version, showAvailableUrls, checkRateLimit, rateLimiter }
