@@ -5,22 +5,16 @@ import qmulus from '../../src/index'
 import Building from '../../src/api/buildings/model'
 import buildingsData from './buildingsData.json'
 
-const msgLimit = 'Limit must be between 1 and 100.'
-const errLimit = {'error': {code: 422, message: msgLimit}}
+const errLimit = { code: 422, message: 'Limit must be between 1 and 100.' }
+const errOffset = { code: 422, message: 'Offset must be positive integer.' }
+const errSort = { code: 422, message: 'Sort length must be greater than 1.' }
+const errSearch1 = { code: 422, message: 'Query must be specified.' }
+const errSearch2 = { code: 422, message: 'Query length must be more than 2.' }
 
-const msgOffset = 'Offset must be positive integer.'
-const errOffset = {'error': {code: 422, message: msgOffset}}
-
-const msgSort = 'Sort length must be greater than 1.'
-const errSort = {'error': {code: 422, message: msgSort}}
-
-const msgSearch1 = 'Query must be specified.'
-const msgSearch2 = 'Query length must be more than 2.'
-const errSearch1 = {'error': {code: 422, message: msgSearch1}}
-const errSearch2 = {'error': {code: 422, message: msgSearch2}}
-
-const msgID = 'Building with ID \'non-existent-id\' does not exist.'
-const errID = {'error': {code: 404, message: msgID}}
+const errID = {
+  code: 404,
+  message: 'Building with ID \'non-existent-id\' does not exist.',
+}
 
 // ~~~~~~~~~~ Setup ~~~~~~~~~~
 test.cb.before('setup', t => {
@@ -55,7 +49,7 @@ test.cb('/?limit=0', t => {
     .get('/v1/buildings?limit=0')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect(errLimit)
+    .expect({ 'error': errLimit })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -68,7 +62,7 @@ test.cb('/?limit=101', t => {
     .get('/v1/buildings?limit=0')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect(errLimit)
+    .expect({ 'error': errLimit })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -81,7 +75,7 @@ test.cb('/?limit=ten', t => {
     .get('/v1/buildings?limit=ten')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect(errLimit)
+    .expect({ 'error': errLimit })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -147,7 +141,7 @@ test.cb('/?offset=-18', t => {
     .get('/v1/buildings?offset=-18')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect(errOffset)
+    .expect({ 'error': errOffset })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -160,7 +154,7 @@ test.cb('/?offset=twenty', t => {
     .get('/v1/buildings?offset=twenty')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect(errOffset)
+    .expect({ 'error': errOffset })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -201,7 +195,7 @@ test.cb('/?sort=+', t => {
     .get('/v1/buildings?sort=+')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect(errSort)
+    .expect({ 'error': errSort })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -212,9 +206,10 @@ test.cb('/?sort=+', t => {
 // Non-Existing Route
 test.cb('/non-existent-route', t => {
   request(qmulus.Server)
-    .get('/v1/buildingz')
+    .get('/v1/buildings/non/existent/route')
     .expect('Content-Type', /json/)
     .expect(404)
+    .expect({ 'error': {'code': 404, message: 'Not Found'} })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -254,7 +249,7 @@ test.cb('/search?q=', t => {
     .get('/v1/buildings/search?q=')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect(errSearch1)
+    .expect({ 'error': errSearch1 })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -267,7 +262,7 @@ test.cb('/search?q=uh', t => {
     .get('/v1/buildings/search?q=uh')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect(errSearch2)
+    .expect({ 'error': errSearch2 })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -289,7 +284,6 @@ test.cb('/search?q=non-existent', t => {
 })
 
 // ~~~~~~~~~~ ID Tests ~~~~~~~~~~
-
 test.cb('/douglas', t => {
   request(qmulus.Server)
     .get('/v1/buildings/douglas')
@@ -308,7 +302,7 @@ test.cb('/non-existent-id', t => {
     .get('/v1/buildings/non-existent-id')
     .expect('Content-Type', /json/)
     .expect(404)
-    .expect(errID)
+    .expect({ 'error': errID })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
