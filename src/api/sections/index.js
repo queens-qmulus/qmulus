@@ -1,17 +1,28 @@
 import express from 'express'
 
-import Section from './model'
+import list from './routes/list'
+import search from './routes/search'
+import show from './routes/show'
+
+import validator from '../../utils/validator'
 
 const router = express.Router()
 
-router.get('/', async (req, res, next) => {
-  try {
-    // exclude MongoDB's _id and __v fields
-    const docs = await Section.find({}, '-_id -__v').exec()
-    res.json(docs)
-  } catch (ex) {
-    return next(ex)
-  }
-})
+router.get('/',
+  validator.limit,
+  validator.offset,
+  validator.sort,
+  list,
+)
+
+router.get('/search',
+  validator.query,
+  validator.limit,
+  validator.offset,
+  validator.sort,
+  search,
+)
+
+router.get('/:id', show)
 
 export default router

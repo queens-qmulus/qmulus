@@ -4,17 +4,7 @@ import request from 'supertest'
 import qmulus from '../../src/index'
 import Building from '../../src/api/buildings/model'
 import buildingsData from './buildingsData.json'
-
-const errLimit = { code: 422, message: 'Limit must be between 1 and 100.' }
-const errOffset = { code: 422, message: 'Offset must be positive integer.' }
-const errSort = { code: 422, message: 'Sort length must be greater than 1.' }
-const errSearch1 = { code: 422, message: 'Query must be specified.' }
-const errSearch2 = { code: 422, message: 'Query length must be more than 2.' }
-
-const errID = {
-  code: 404,
-  message: 'Building with ID \'non-existent-id\' does not exist.',
-}
+import errors from '../'
 
 // ~~~~~~~~~~ Setup ~~~~~~~~~~
 test.cb.before('setup', t => {
@@ -49,7 +39,7 @@ test.cb('/?limit=0', t => {
     .get('/v1/buildings?limit=0')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect({ 'error': errLimit })
+    .expect({ 'error': errors.limit })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -59,10 +49,10 @@ test.cb('/?limit=0', t => {
 
 test.cb('/?limit=101', t => {
   request(qmulus.Server)
-    .get('/v1/buildings?limit=0')
+    .get('/v1/buildings?limit=101')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect({ 'error': errLimit })
+    .expect({ 'error': errors.limit })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -75,7 +65,7 @@ test.cb('/?limit=ten', t => {
     .get('/v1/buildings?limit=ten')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect({ 'error': errLimit })
+    .expect({ 'error': errors.limit })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -141,7 +131,7 @@ test.cb('/?offset=-18', t => {
     .get('/v1/buildings?offset=-18')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect({ 'error': errOffset })
+    .expect({ 'error': errors.offset })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -154,7 +144,7 @@ test.cb('/?offset=twenty', t => {
     .get('/v1/buildings?offset=twenty')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect({ 'error': errOffset })
+    .expect({ 'error': errors.offset })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -195,7 +185,7 @@ test.cb('/?sort=+', t => {
     .get('/v1/buildings?sort=+')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect({ 'error': errSort })
+    .expect({ 'error': errors.sort })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -218,9 +208,11 @@ test.cb('/non-existent-route', t => {
 })
 
 // ~~~~~~~~~~ Search Tests ~~~~~~~~~~
+
+// Building name search
 test.cb('/search?q=Walter Light', t => {
   request(qmulus.Server)
-    .get('/v1/buildings/search?q=Walter%20Light')
+    .get('/v1/buildings/search?q=Walter Light')
     .expect('Content-Type', /json/)
     .expect(200)
     .expect(buildingsData.slice(20))
@@ -231,6 +223,7 @@ test.cb('/search?q=Walter Light', t => {
     })
 })
 
+// Building campus search
 test.cb('/search?q=west', t => {
   request(qmulus.Server)
     .get('/v1/buildings/search?q=west')
@@ -249,7 +242,7 @@ test.cb('/search?q=', t => {
     .get('/v1/buildings/search?q=')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect({ 'error': errSearch1 })
+    .expect({ 'error': errors.search1 })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -262,7 +255,7 @@ test.cb('/search?q=uh', t => {
     .get('/v1/buildings/search?q=uh')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect({ 'error': errSearch2 })
+    .expect({ 'error': errors.search2 })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -302,7 +295,7 @@ test.cb('/non-existent-id', t => {
     .get('/v1/buildings/non-existent-id')
     .expect('Content-Type', /json/)
     .expect(404)
-    .expect({ 'error': errID })
+    .expect({ 'error': errors.getIdError('Building', 'ID') })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()

@@ -1,17 +1,25 @@
 import express from 'express'
 
-import News from './model'
+import list from './routes/list'
+import search from './routes/search'
+
+import validator from '../../utils/validator'
 
 const router = express.Router()
 
-router.get('/', async (req, res, next) => {
-  try {
-    // exclude MongoDB's _id and __v fields
-    const docs = await News.find({}, '-_id -__v').exec()
-    res.json(docs)
-  } catch (ex) {
-    return next(ex)
-  }
-})
+router.get('/',
+  validator.limit,
+  validator.offset,
+  validator.sort,
+  list,
+)
+
+router.get('/search',
+  validator.query,
+  validator.limit,
+  validator.offset,
+  validator.sort,
+  search,
+)
 
 export default router

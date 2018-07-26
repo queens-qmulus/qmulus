@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const courseSchema = new Schema({
+  id: String,
   department: String,
   course_code: String,
   course_name: String,
@@ -26,14 +27,11 @@ const courseSchema = new Schema({
   },
 })
 
-// Support indexing for more efficient MongoDB lookups
 courseSchema.index({
-  department: 'text',
   course_code: 'text',
   course_name: 'text',
-  campus: 'text',
-  academic_level: 'text',
-  units: 'text',
+  department: 'text',
+  description: 'text',
 })
 
 export default mongoose.model('courses', courseSchema)

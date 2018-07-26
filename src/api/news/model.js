@@ -16,6 +16,8 @@ const newsSchema = new Schema({
 newsSchema.index({
   slug: 'text',
   authors: 'text',
+  published: 'text',
+  updated: 'text',
 })
 
 export default mongoose.model('news', newsSchema)

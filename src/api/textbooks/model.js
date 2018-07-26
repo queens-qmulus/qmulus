@@ -23,9 +23,8 @@ const textbookSchema = new Schema({
 })
 
 textbookSchema.index({
-  isbn_10: 'text',
-  isbn_13: 'text',
   authors: 'text',
+  title: 'text',
 })
 
 export default mongoose.model('textbooks', textbookSchema)

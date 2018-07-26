@@ -3,10 +3,10 @@ const OFFSET = 0
 const SORT_MAP = {
   'buildings': 'id',
   'textbooks': 'isbn_13',
-  'news': 'published',
-  'courses': 'department course_code',
+  'news': '-published',
+  'courses': 'id',
   'departments': 'code',
-  'sections': 'year term academic_level campus department course_code',
+  'sections': 'id',
 }
 
 const validator = {}
@@ -17,7 +17,7 @@ validator.query = (req, res, next) => {
   if (!query) _throwError('Query must be specified.', next)
   if (query.length < 3) _throwError('Query length must be more than 2.', next)
 
-  _handleQuery(req, 'limit', parseInt(query), next)
+  _handleQuery(req, 'q', query, next)
 }
 
 validator.limit = (req, res, next) => {

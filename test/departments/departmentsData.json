@@ -1,86 +1,86 @@
 [
-   {
-       "code":"ARTH",
-       "name":"Art History"
-   },
-   {
-       "code":"TMED",
-       "name":"Translational Medicine"
-   },
-   {
-       "code":"GISC",
-       "name":"Geographic Infomation Science"
-   },
-   {
-       "code":"CLAS",
-       "name":"Classics"
-   },
-   {
-       "code":"LIBS",
-       "name":"Liberal Studies"
-   },
-   {
-       "code":"PATH",
-       "name":"Pathology & Molecular Medicine"
-   },
-   {
-       "code":"UNSP",
-       "name":"Unspecified Subject"
-   },
-   {
-       "code":"SPEC",
-       "name":"Special Studies"
-   },
-   {
-       "code":"RHL",
-       "name":"Rehabilitation & Hlth Leadersh"
-   },
-   {
-       "code":"DDHT",
-       "name":"Drug Developm & Human Toxicolo"
-   },
-   {
-       "code":"SOCY",
-       "name":"Sociology"
-   },
-   {
-       "code":"MBUS",
-       "name":"Executive MBA"
-   },
-   {
-       "code":"ANSH",
-       "name":"Anishinaabe"
-   },
-   {
-       "code":"PROF",
-       "name":"Professional Studies"
-   },
-   {
-       "code":"RELN",
-       "name":"Religion"
-   },
-   {
-       "code":"FREN",
-       "name":"French Language and Literature"
-   },
-   {
-       "code":"MEDS",
-       "name":"Medicine"
-   },
-   {
-       "code":"INTN",
-       "name":"Professional Internship"
-   },
-   {
-       "code":"WMNS",
-       "name":"Women's Studies"
-   },
-   {
-       "code":"QACS",
-       "name":"Animal Care Service"
-   },
-   {
-       "code":"LAW",
-       "name":"Law Studies"
-   }
+  {
+    "code": "ANSH",
+    "name": "Anishinaabe"
+  },
+  {
+    "code": "ARTH",
+    "name": "Art History"
+  },
+  {
+    "code": "CLAS",
+    "name": "Classics"
+  },
+  {
+    "code": "DDHT",
+    "name": "Drug Developm & Human Toxicolo"
+  },
+  {
+    "code": "FREN",
+    "name": "French Language and Literature"
+  },
+  {
+    "code": "GISC",
+    "name": "Geographic Infomation Science"
+  },
+  {
+    "code": "INTN",
+    "name": "Professional Internship"
+  },
+  {
+    "code": "LAW",
+    "name": "Law Studies"
+  },
+  {
+    "code": "LIBS",
+    "name": "Liberal Studies"
+  },
+  {
+    "code": "MBUS",
+    "name": "Executive MBA"
+  },
+  {
+    "code": "MEDS",
+    "name": "Medicine"
+  },
+  {
+    "code": "PATH",
+    "name": "Pathology & Molecular Medicine"
+  },
+  {
+    "code": "PROF",
+    "name": "Professional Studies"
+  },
+  {
+    "code": "QACS",
+    "name": "Animal Care Service"
+  },
+  {
+    "code": "RELN",
+    "name": "Religion"
+  },
+  {
+    "code": "RHL",
+    "name": "Rehabilitation & Hlth Leadersh"
+  },
+  {
+    "code": "SOCY",
+    "name": "Sociology"
+  },
+  {
+    "code": "SPEC",
+    "name": "Special Studies"
+  },
+  {
+    "code": "TMED",
+    "name": "Translational Medicine"
+  },
+  {
+    "code": "UNSP",
+    "name": "Unspecified Subject"
+  },
+  {
+    "code": "WMNS",
+    "name": "Women's Studies"
+  }
 ]
