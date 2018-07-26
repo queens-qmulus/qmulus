@@ -37,7 +37,8 @@
       "esm"
     ],
     "files": [
-      "test/*"
+      "test/*",
+      "!test/index.js"
     ]
   },
   "nyc": {
