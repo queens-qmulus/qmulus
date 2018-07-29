@@ -18,8 +18,8 @@ import logger from './utils/logger'
 const app = express()
 // const cache = apicache.middleware // TODO: Remove after
 const test = process.argv.join().match('/ava/')
-let URI = process.env.QMULUS_MONGO_URI || 'mongodb://localhost:27017/qmulus'
 const { version, showAvailableUrls, checkRateLimit, rateLimiter } = utils
+let URI = process.env.QMULUS_MONGO_URI || 'mongodb://localhost:27017/qmulus'
 
 if (test) URI += '_test'
 

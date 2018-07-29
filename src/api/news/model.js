@@ -3,6 +3,8 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const newsSchema = new Schema({
+  _id: { type: String, select: false },
+  __v: { type: Number, select: false },
   title: String,
   slug: String,
   url: String,

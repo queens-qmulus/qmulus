@@ -3,6 +3,8 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const courseSchema = new Schema({
+  _id: { type: String, select: false },
+  __v: { type: Number, select: false },
   id: String,
   department: String,
   course_code: String,

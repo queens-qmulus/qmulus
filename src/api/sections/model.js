@@ -3,6 +3,8 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const sectionSchema = new Schema({
+  _id: { type: String, select: false },
+  __v: { type: Number, select: false },
   id: String,
   year: String,
   term: String,
@@ -13,24 +15,21 @@ const sectionSchema = new Schema({
   campus: String,
   academic_level: String,
   course_sections: [{
-    _id: false,
+    _id: { type: String, select: false },
     section_name: String,
     section_type: String,
     section_number: String,
     class_number: Number,
-    dates: {
-      type: [{
-        _id: false,
-        day: String,
-        start_time: String,
-        end_time: String,
-        start_date: String,
-        end_date: String,
-        location: String,
-        instructors: { type: [String], index: true },
-      }],
-      index: true,
-    },
+    dates: [{
+      _id: { type: String, select: false },
+      day: String,
+      start_time: String,
+      end_time: String,
+      start_date: String,
+      end_date: String,
+      location: String,
+      instructors: { type: [String], index: true },
+    }],
     combined_with: [Number],
     enrollment_capacity: Number,
     enrollment_total: Number,
