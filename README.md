@@ -1,4 +1,5 @@
 # qmulus
 Queen's Open Data API
 
-[![Coverage Status](https://coveralls.io/repos/github/alexadusei/qmulus/badge.svg?t=xiGGrs)](https://coveralls.io/github/alexadusei/qmulus)
+[![Actions Status](https://github.com/queens-qmulus/qmulus/workflows/Node%20CI/badge.svg)](https://github.com/queens-qmulus/qmulus/actions)
+
