@@ -6,22 +6,38 @@
 Qmulus is a publically accessible, open API that provides access to datasets related to Queen's University. It is free to use for anyone to build apps based on the 6 current datasets. The data is collected from various university sources and is provided as-is.
 
 ## Using the API
-The REST API can be accessed using `GET` calls to the following url:
-```
-https://api.qmulus.io/v1/
-```
+The REST API can be accessed using `GET` calls to the following base endpoint url: `https://api.qmulus.io/v1/`
+
 For example:
 ```
-$ curl ....
-... output of curl command
-// TODO
+$ curl https://api.qmulus.io/v1/courses/CISC124
+{
+  "department": "CISC",
+  "course_code": "124",
+  "course_name": "Introduction to Computing Science II",
+  "campus": "Main",
+  "description": "Introduction to object-oriented design, architecture, and ...",
+  "grading_basis": "Graded",
+  "course_components": {
+    "laboratory": "Required",
+    "lecture": "Required"
+  },
+  "requirements": "Prerequisite C- in CISC121 \nCorequisite CISC102 or MATH111 ...",
+  "academic_level": "Undergraduate",
+  "academic_group": "Faculty of Arts and Science",
+  "academic_org": "School of Computing",
+  "units": 3,
+  ...
+}
 ```
+Try out the API at our docs site: [https://docs.qmulus.io](https://docs.qmulus.io)
 
 ## Documentation
-Please see the documentation with details for all endpoints here: [https://qmulus.io/docs](https://qmulus.io/docs)
+Please see the documentation with details for all endpoints here: [https://docs.qmulus.io](https://docs.qmulus.io)
 
-Additional technical documentaion can be found in the contributions guide.
+Additional technical documentaion can be found in the [contributions guide](CONTRIBUTING.md).
 
 ## Contributing
-We welcome contributions! Please feel free to file bugs, questions, features and data requests in [this repo's issue tracker](https://github.com/queens-qmulus/qmulus/issues). 
-If you're looking to contribute to Qmulus directly, please the [code contributions guide](CONTRIBUTING.md).
+We welcome contributions! Please feel free to file bugs and questions as well as feature and data set requests in [this repo's issue tracker](https://github.com/queens-qmulus/qmulus/issues). 
+If you're looking to contribute to Qmulus directly, please see the [code contributions guide](CONTRIBUTING.md).
+
