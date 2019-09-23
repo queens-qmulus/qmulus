@@ -4,6 +4,7 @@ import helmet from 'helmet'
 import mongoose from 'mongoose'
 import morgan from 'morgan'
 // import apicache from 'apicache' // TODO: Remove after
+import { MongoMemoryServer } from 'mongodb-memory-server'
 
 import buildings from './api/buildings'
 import courses from './api/courses'
@@ -18,16 +19,24 @@ import logger from './utils/logger'
 const app = express()
 // const cache = apicache.middleware // TODO: Remove after
 const test = process.argv.join().match('/ava/')
-let URI = process.env.QMULUS_MONGO_URI || 'mongodb://localhost:27017/qmulus'
+let MONGO_URI = process.env.QMULUS_MONGO_URI || 'mongodb://localhost:27017/qmulus'
 const { version, showAvailableUrls, checkRateLimit, rateLimiter } = utils
 
-if (test) URI += '_test'
-
-// MongoDB connection
-mongoose.connect(URI, { useNewUrlParser: true }, err => {
-  if (err) throw new Error('Connection failed')
-  if (!test) logger.info('Connected to database')
-})
+if (test) {
+  const mongoServer = new MongoMemoryServer();
+  mongoServer.getConnectionString().then((inMemUri) => {
+    mongoose.connect(inMemUri, { useNewUrlParser: true }, err => {
+      if (err) throw new Error('Connection failed')
+      if (!test) logger.info('Connected to database')
+    })
+  });
+} else {
+  // MongoDB connection
+  mongoose.connect(MONGO_URI, { useNewUrlParser: true }, err => {
+    if (err) throw new Error('Connection failed')
+    if (!test) logger.info('Connected to database')
+  })
+}
 
 // Third-party middleware
 app.use(helmet())
