@@ -1,21 +1,21 @@
 {
   "name": "qmulus",
   "version": "0.0.1",
-  "description": "Queen's Open Data API.",
+  "description": "Queen's University Open Data API.",
   "main": "index.js",
   "author": "Alex Adusei",
   "license": "MIT",
-  "homepage": "https://github.com/alexadusei/qmulus#readme",
+  "homepage": "https://github.com/queens-qmulus/qmulus#readme",
   "engines": {
     "node": "10.6.x",
     "npm": "6.x"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alexadusei/qmulus.git"
+    "url": "git+https://github.com/queens-qmulus/qmulus.git"
   },
   "bugs": {
-    "url": "https://github.com/alexadusei/qmulus/issues"
+    "url": "https://github.com/queens-qmulus/qmulus/issues"
   },
   "keywords": [
     "qmulus",
@@ -27,6 +27,7 @@
     "queen's university"
   ],
   "scripts": {
+    "start": "node -r esm bin/prod",
     "dev": "nodemon -r esm bin/dev",
     "test": "nyc ava --serial --verbose",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
