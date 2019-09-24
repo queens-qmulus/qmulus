@@ -1,12 +1,12 @@
 const LIMIT = 20
 const OFFSET = 0
 const SORT_MAP = {
-  'buildings': 'id',
-  'textbooks': 'isbn_13',
-  'news': '-published',
-  'courses': 'id',
-  'departments': 'code',
-  'sections': 'id',
+  buildings: 'id',
+  textbooks: 'isbn_13',
+  news: '-published',
+  courses: 'id',
+  departments: 'code',
+  sections: 'id',
 }
 
 const validator = {}

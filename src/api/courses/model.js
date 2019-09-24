@@ -10,7 +10,7 @@ const courseSchema = new Schema({
   campus: String,
   description: String,
   grading_basis: String,
-  course_components: {type: Map, of: String}, // handles arbitrary keys
+  course_components: { type: Map, of: String }, // handles arbitrary keys
   requirements: String,
   add_consent: String,
   drop_consent: String,

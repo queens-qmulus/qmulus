@@ -38,7 +38,7 @@ test.cb('/?limit=0', t => {
     .get('/v1/sections?limit=0')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect({ 'error': errors.limit })
+    .expect({ error: errors.limit })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -51,7 +51,7 @@ test.cb('/?limit=101', t => {
     .get('/v1/sections?limit=101')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect({ 'error': errors.limit })
+    .expect({ error: errors.limit })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -64,7 +64,7 @@ test.cb('/?limit=ten', t => {
     .get('/v1/sections?limit=ten')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect({ 'error': errors.limit })
+    .expect({ error: errors.limit })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -130,7 +130,7 @@ test.cb('/?offset=-18', t => {
     .get('/v1/sections?offset=-18')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect({ 'error': errors.offset })
+    .expect({ error: errors.offset })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -143,7 +143,7 @@ test.cb('/?offset=twenty', t => {
     .get('/v1/sections?offset=twenty')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect({ 'error': errors.offset })
+    .expect({ error: errors.offset })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -184,7 +184,7 @@ test.cb('/?sort=+', t => {
     .get('/v1/sections?sort=+')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect({ 'error': errors.sort })
+    .expect({ error: errors.sort })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -198,7 +198,7 @@ test.cb('/non-existent-route', t => {
     .get('/v1/sections/non/existent/route')
     .expect('Content-Type', /json/)
     .expect(404)
-    .expect({ 'error': {'code': 404, message: 'Not Found'} })
+    .expect({ error: { code: 404, message: 'Not Found' } })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -247,7 +247,7 @@ test.cb('/search?q=', t => {
     .get('/v1/sections/search?q=')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect({ 'error': errors.search1 })
+    .expect({ error: errors.search1 })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -260,7 +260,7 @@ test.cb('/search?q=uh', t => {
     .get('/v1/sections/search?q=uh')
     .expect('Content-Type', /json/)
     .expect(422)
-    .expect({ 'error': errors.search2 })
+    .expect({ error: errors.search2 })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
@@ -303,7 +303,7 @@ test.cb('/non-existent-id', t => {
     .get('/v1/sections/non-existent-id')
     .expect('Content-Type', /json/)
     .expect(404)
-    .expect({ 'error': errors.getIdError('Section', 'ID') })
+    .expect({ error: errors.getIdError('Section', 'ID') })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
