@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "apicache": "^1.5.2",
+    "apidoc": "^0.17.7",
     "compression": "^1.7.4",
     "esm": "^3.2.25",
     "express": "^4.17.1",
