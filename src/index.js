@@ -44,7 +44,9 @@ app.use(helmet())
 app.use(compression())
 // app.use(cache('5 minutes')) // TODO: Remove after
 app.use(rateLimiter)
-if (!test) app.use(morgan(logger.morganFormat, {stream: logger.winstonStream}))
+if (!test) {
+  app.use(morgan(logger.morganFormat, { stream: logger.winstonStream }))
+}
 
 // Informational API endpoints
 app.get(`/${version}`, showAvailableUrls)
