@@ -1,6 +1,7 @@
 # Qmulus: Queen's University Open Data API
 
 [![Actions Status](https://github.com/queens-qmulus/qmulus/workflows/Node%20CI/badge.svg)](https://github.com/queens-qmulus/qmulus/actions)
+[![Gitter](https://img.shields.io/gitter/room/queens-qmulus/community)](https://gitter.im/queens-qmulus/community)
 
 ## About
 Qmulus is a publically accessible, open API that provides access to datasets related to Queen's University. It is free to use for anyone to build apps based on the 6 current datasets. The data is collected from various university sources and is provided as-is.
