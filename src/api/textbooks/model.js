@@ -3,6 +3,9 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const textbookSchema = new Schema({
+  // Exclude MongoDB's _id and __v fields.
+  _id: { type: String, select: false },
+  __v: { type: Number, select: false },
   isbn_10: String,
   isbn_13: String,
   title: String,
@@ -12,7 +15,7 @@ const textbookSchema = new Schema({
   price_used: Number,
   status: String,
   courses: [{
-    _id: false,
+    _id: { type: String, select: false },
     year: String,
     term: String,
     department: String,
