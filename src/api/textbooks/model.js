@@ -3,9 +3,7 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const textbookSchema = new Schema({
-  // Exclude MongoDB's _id and __v fields.
-  _id: { type: String, select: false },
-  __v: { type: Number, select: false },
+  id: String,
   isbn_10: String,
   isbn_13: String,
   title: String,
@@ -15,7 +13,7 @@ const textbookSchema = new Schema({
   price_used: Number,
   status: String,
   courses: [{
-    _id: { type: String, select: false },
+    _id: false,
     year: String,
     term: String,
     department: String,
@@ -26,6 +24,7 @@ const textbookSchema = new Schema({
 })
 
 textbookSchema.index({
+  id: 'text',
   authors: 'text',
   title: 'text',
 })

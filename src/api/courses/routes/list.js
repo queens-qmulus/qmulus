@@ -2,7 +2,7 @@ import Course from '../model'
 
 export default async function list (req, res, next) {
   try {
-    const docs = await Course.find({})
+    const docs = await Course.find({}, '-_id -__v')
       .limit(req.query.limit)
       .skip(req.query.offset)
       .sort(req.query.sort)

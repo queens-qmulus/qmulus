@@ -3,9 +3,6 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const sectionSchema = new Schema({
-  // Exclude MongoDB's _id and __v fields.
-  _id: { type: String, select: false },
-  __v: { type: Number, select: false },
   id: String,
   year: String,
   term: String,
@@ -16,13 +13,13 @@ const sectionSchema = new Schema({
   campus: String,
   academic_level: String,
   course_sections: [{
-    _id: { type: String, select: false },
+    _id: false,
     section_name: String,
     section_type: String,
     section_number: String,
     class_number: Number,
     dates: [{
-      _id: { type: String, select: false },
+      _id: false,
       day: String,
       start_time: String,
       end_time: String,

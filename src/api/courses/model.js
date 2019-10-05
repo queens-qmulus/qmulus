@@ -3,9 +3,6 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const courseSchema = new Schema({
-  // Exclude MongoDB's _id and __v fields.
-  _id: { type: String, select: false },
-  __v: { type: Number, select: false },
   id: String,
   department: String,
   course_code: String,

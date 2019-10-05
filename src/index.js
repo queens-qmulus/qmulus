@@ -5,6 +5,7 @@ import mongoose from 'mongoose'
 import morgan from 'morgan'
 // import apicache from 'apicache' // TODO: Remove after
 import { MongoMemoryServer } from 'mongodb-memory-server'
+import bodyParser from 'body-parser'
 
 import buildings from './api/buildings'
 import courses from './api/courses'
@@ -12,6 +13,8 @@ import departments from './api/departments'
 import news from './api/news'
 import sections from './api/sections'
 import textbooks from './api/textbooks'
+
+import ingest from './api/ingest'
 
 import utils from './utils'
 import logger from './utils/logger'
@@ -33,7 +36,6 @@ if (test) {
     })
   })
 } else {
-  // MongoDB connection
   mongoose.connect(MONGO_URI, { useNewUrlParser: true }, err => {
     if (err) throw new Error('Connection failed')
     if (!test) logger.info('Connected to database')
@@ -45,9 +47,14 @@ app.use(helmet())
 app.use(compression())
 // app.use(cache('5 minutes')) // TODO: Remove after
 app.use(rateLimiter)
+app.use(bodyParser.json())
+
 if (!test) {
   app.use(morgan(logger.morganFormat, { stream: logger.winstonStream }))
 }
+
+// Admin endpoints
+app.use('/ingest', ingest)
 
 // Informational API endpoints
 app.get(`/${version}`, showAvailableUrls)
