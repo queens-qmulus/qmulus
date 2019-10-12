@@ -11,6 +11,18 @@
   "env": {
     "QMULUS_MONGO_URI": {
       "required": true
+    },
+    "GITHUB_TOKEN": {
+      "required": true
+    },
+    "INTER_SERVICE_SECRET": {
+      "required": true
+    },
+    "QMULUS_MANAGEMENT_URL": {
+      "required": true
+    },
+    "QMULUS_MONGO_URI": {
+      "required": true
     }
   },
   "formation": {
