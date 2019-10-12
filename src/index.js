@@ -15,6 +15,7 @@ import textbooks from './api/textbooks'
 
 import utils from './utils'
 import logger from './utils/logger'
+import { tokenValidator, getApiTokenManager } from './utils/apiTokenManager'
 
 const app = express()
 // const cache = apicache.middleware // TODO: Remove after
@@ -50,7 +51,7 @@ if (!test) {
 
 // Informational API endpoints
 app.get(`/${version}`, showAvailableUrls)
-app.get(`/${version}/rate_limit`, checkRateLimit)
+app.get(`/${version}/rate_limit`, tokenValidator, checkRateLimit)
 
 // API routes
 app.use(`/${version}/buildings`, buildings)
@@ -72,5 +73,7 @@ app.use((err, req, res, next) => {
   const error = { code: err.status, message: err.message }
   res.status(err.status).json({ error })
 })
+
+getApiTokenManager().preCacheApiTokenHashes()
 
 export default { Server: app }
