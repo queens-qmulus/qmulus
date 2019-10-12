@@ -5,10 +5,12 @@ import search from './routes/search'
 import show from './routes/show'
 
 import validator from '../../utils/validator'
+import { tokenValidator } from '../../utils/apiTokenManager'
 
 const router = express.Router()
 
 router.get('/',
+  tokenValidator,
   validator.limit,
   validator.offset,
   validator.sort,
@@ -16,6 +18,7 @@ router.get('/',
 )
 
 router.get('/search',
+  tokenValidator,
   validator.query,
   validator.limit,
   validator.offset,
@@ -23,6 +26,6 @@ router.get('/search',
   search,
 )
 
-router.get('/:id', show)
+router.get('/:id', tokenValidator, show)
 
 export default router
