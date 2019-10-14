@@ -21,7 +21,13 @@
     "QMULUS_MANAGEMENT_URL": {
       "required": true
     },
-    "QMULUS_MONGO_URI": {
+    "GITHUB_REPO": {
+      "required": true
+    },
+    "GITHUB_USER": {
+      "required": true
+    },
+    "IS_STAGING": {
       "required": true
     }
   },
