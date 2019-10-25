@@ -43,7 +43,7 @@ class IngestManager {
     if (this.inProgress) return false
 
     const ingestMetadata = getDefaultIngestMetadata(uuidv1())
-    let promises = []
+    let seqPromise
 
     try {
       const version = await getVersionToIngest()
@@ -61,10 +61,9 @@ class IngestManager {
         throw new Error('No modules to ingest')
       }
 
-      let firstModuleStarted = false
-
-      promises = modulesToIngest
-        .map(({ filename }) => {
+      seqPromise = modulesToIngest.reduce((previousPromise, nextModule) => {
+        const { filename } = nextModule
+        return previousPromise.then(() => {
           const contentsUrl = getContentsUrl(version.sha, filename)
           const moduleName = moduleNameFromFilename(filename)
           const savedFileName = `${__dirname}/${version.sha}_${filename}`
@@ -75,13 +74,9 @@ class IngestManager {
                 console: false,
               })
 
+              ingestMetadata.status = 'started'
               ingestMetadata.startedModules.push(moduleName)
-
-              if (!firstModuleStarted) {
-                ingestMetadata.status = 'started'
-                this.sendMetadata(ingestMetadata)
-                firstModuleStarted = true
-              }
+              this.sendMetadata(ingestMetadata)
 
               return this.ingestModule(moduleName, readInterface)
                 .then((moduleMetadata) => {
@@ -100,6 +95,7 @@ class IngestManager {
               throw ex
             })
         })
+      }, Promise.resolve())
     } catch (ex) {
       ingestMetadata.status = 'error'
 
@@ -110,7 +106,7 @@ class IngestManager {
       logger.error('Uncaught error occured while ingesting ', ex)
     }
 
-    Promise.all(promises).then(() => {
+    seqPromise.then(() => {
       ingestMetadata.status = 'done'
       this.sendMetadata(ingestMetadata)
       saveIngestRecord(ingestMetadata)
@@ -133,11 +129,11 @@ class IngestManager {
     const promises = [
       new Promise((resolve) => readInterface.on('close',
         () => {
-          // TODO: timeout needed to allow for on('line') to execute
+          // TODO: timeout needed to allow for the longest on('line') to execute
           // and add to the promises queue before on('close') is triggered.
           // Perhaps using readlines with an async iterator,
           // available in node 11+
-          setTimeout(resolve, 1000)
+          setTimeout(resolve, 3 * 60 * 1000)
         })),
     ]
 
@@ -233,6 +229,8 @@ class IngestManager {
         timestamp: new Date(),
         ingestMetadata: metadata,
       },
+    }).catch(ex => {
+      logger.error('Failed to send metadata to ingest service', ex)
     })
   }
 }
