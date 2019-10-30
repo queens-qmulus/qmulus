@@ -83,14 +83,18 @@ class IngestManager {
                   ingestMetadata.datasetModules[moduleName] = moduleMetadata
                 })
                 .catch((ex) => {
-                  logger
-                    .error(`[Ingest] Error occured during ingest for ${moduleName}`, ex)
+                  logger.error(
+                    `[Ingest] Error occured during ingest for ${moduleName}`,
+                    ex
+                  )
                   ingestMetadata.exceptions.push(ex.toString())
                 })
             })
             .catch((ex) => {
-              logger
-                .error(`[Ingest] Error occured dataset fetch/read for ${moduleName}`, ex)
+              logger.error(
+                `[Ingest] Error occured dataset fetch/read for ${moduleName}`,
+                ex
+              )
               ingestMetadata.exceptions.push(ex.toString())
               throw ex
             })
@@ -167,7 +171,8 @@ class IngestManager {
     logger.info(`[Ingest] Created ${moduleMetadata.inserted.length}` +
       ` new ${moduleName} record(s)`)
     logger.info(
-      [ '[Ingest] ',
+      [
+        '[Ingest] ',
         'Updated',
         Object.values(moduleMetadata.updated).length,
         moduleName,
@@ -197,7 +202,8 @@ class IngestManager {
             JSON.stringify(docDiff)
           )
         }).catch((ex) => {
-          logger.error(`[Ingest] Failed to update existing ${moduleName} record`, ex)
+          logger.error(
+            `[Ingest] Failed to update existing ${moduleName} record`, ex)
           return createLineMetadata('failed', oldDoc.id, /* diff */ '', ex)
         })
       } else {
@@ -210,7 +216,8 @@ class IngestManager {
       }
     } catch (ex) {
       console.log(fileLine)
-      logger.error(`[Ingest] Uncaught exception during ${moduleName} line ingest`, ex)
+      logger.error(
+        `[Ingest] Uncaught exception during ${moduleName} line ingest`, ex)
       return createLineMetadata('failed', /* id */ '', /* diff */ '', ex)
     }
   }
