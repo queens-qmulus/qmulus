@@ -53,6 +53,10 @@ if (!test) {
   app.use(morgan(logger.morganFormat, { stream: logger.winstonStream }))
 }
 
+// Temp loader.io verification endpoint
+app.get('/loaderio-caaf47357a9af9fdde72ae2d64914656',
+  (req, res) => res.send('loaderio-caaf47357a9af9fdde72ae2d64914656'))
+
 // Admin endpoints
 app.use('/ingest', ingest)
 
