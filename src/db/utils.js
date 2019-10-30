@@ -91,6 +91,7 @@ export async function getVersionToIngest () {
 
   if (IS_STAGING) {
     approvedVersion = recentCommitShas[0]
+    logger.info('[Ingest] Using latest git versions (staging)')
   } else {
     try {
       const res = await axios({
@@ -101,14 +102,15 @@ export async function getVersionToIngest () {
         },
       })
       approvedVersion = res.data[0].version
+      logger.info('[Ingest] Using production approved version.')
     } catch (ex) {
-      logger.error('Failed to fetch approvedVersion')
+      logger.error('[Ingest] Failed to fetch approvedVersion')
     }
   }
   if (!approvedVersion) throw new Error('No approved version.')
 
   if (lastVersion === approvedVersion) {
-    logger.info('Approved version already ingested.')
+    logger.info('[Ingest] Approved version already ingested.')
     return
   }
 

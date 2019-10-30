@@ -84,13 +84,13 @@ class IngestManager {
                 })
                 .catch((ex) => {
                   logger
-                    .error(`Error occured during ingest for ${moduleName}`, ex)
+                    .error(`[Ingest] Error occured during ingest for ${moduleName}`, ex)
                   ingestMetadata.exceptions.push(ex.toString())
                 })
             })
             .catch((ex) => {
               logger
-                .error(`Error occured dataset fetch/read for ${moduleName}`, ex)
+                .error(`[Ingest] Error occured dataset fetch/read for ${moduleName}`, ex)
               ingestMetadata.exceptions.push(ex.toString())
               throw ex
             })
@@ -103,7 +103,7 @@ class IngestManager {
       this.sendMetadata(ingestMetadata)
       this.inProgress = false
 
-      logger.error('Uncaught error occured while ingesting ', ex)
+      logger.error('[Ingest] Uncaught error occured while ingesting ', ex)
     }
 
     seqPromise.then(() => {
@@ -111,19 +111,19 @@ class IngestManager {
       this.sendMetadata(ingestMetadata)
       saveIngestRecord(ingestMetadata)
       this.inProgress = false
-      logger.info('All ingests completed')
+      logger.info('[Ingest] All ingests completed')
     }).catch((ex) => {
       ingestMetadata.status = 'error'
       this.sendMetadata(ingestMetadata)
       this.inProgress = false
-      logger.error('Error while ingesting', ex)
+      logger.error('[Ingest] Error while ingesting', ex)
     })
 
     return true
   }
 
   async ingestModule (moduleName, readInterface) {
-    logger.info(`Starting ${moduleName} module ingest`)
+    logger.info(`[Ingest] Starting ${moduleName} module ingest`)
 
     const moduleMetadata = getDefaultModuleMetadata()
     const promises = [
@@ -164,10 +164,10 @@ class IngestManager {
     })
 
     await Promise.all(promises)
-    logger.info(`Created ${moduleMetadata.inserted.length}` +
+    logger.info(`[Ingest] Created ${moduleMetadata.inserted.length}` +
       ` new ${moduleName} record(s)`)
     logger.info(
-      [
+      [ '[Ingest] ',
         'Updated',
         Object.values(moduleMetadata.updated).length,
         moduleName,
@@ -175,7 +175,7 @@ class IngestManager {
       ].join(' ')
     )
     if (moduleMetadata.failed.length) {
-      logger.error(`Failed on ${moduleMetadata.failed.length}` +
+      logger.error(`[Ingest] Failed on ${moduleMetadata.failed.length}` +
         ` new ${moduleName} record(s)`)
     }
     return moduleMetadata
@@ -197,26 +197,26 @@ class IngestManager {
             JSON.stringify(docDiff)
           )
         }).catch((ex) => {
-          logger.error(`Failed to update existing ${moduleName} record`, ex)
+          logger.error(`[Ingest] Failed to update existing ${moduleName} record`, ex)
           return createLineMetadata('failed', oldDoc.id, /* diff */ '', ex)
         })
       } else {
         return MongooseModel.create(newDoc).then(() => {
           return createLineMetadata('inserted', newDoc.id)
         }).catch((ex) => {
-          logger.error(`Failed to create new ${moduleName} record`, ex)
+          logger.error(`[Ingest] Failed to create new ${moduleName} record`, ex)
           return createLineMetadata('failed', /* id */ '', /* diff */ '', ex)
         })
       }
     } catch (ex) {
       console.log(fileLine)
-      logger.error(`Uncaught exception during ${moduleName} line ingest`, ex)
+      logger.error(`[Ingest] Uncaught exception during ${moduleName} line ingest`, ex)
       return createLineMetadata('failed', /* id */ '', /* diff */ '', ex)
     }
   }
 
   sendMetadata (metadata) {
-    logger.info('Sending metadata to ingest service', metadata.status)
+    logger.info('[Ingest] Sending metadata to ingest service', metadata.status)
 
     axios({
       url: INGEST_METADATA_API_URL,
@@ -230,7 +230,7 @@ class IngestManager {
         ingestMetadata: metadata,
       },
     }).catch(ex => {
-      logger.error('Failed to send metadata to ingest service', ex)
+      logger.error('[Ingest] Failed to send metadata to ingest service', ex)
     })
   }
 }
