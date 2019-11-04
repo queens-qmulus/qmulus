@@ -1,85 +1,106 @@
 [
   {
+    "id": "ANSH",
     "code": "ANSH",
     "name": "Anishinaabe"
   },
   {
+    "id": "ARTH",
     "code": "ARTH",
     "name": "Art History"
   },
   {
+    "id": "CLAS",
     "code": "CLAS",
     "name": "Classics"
   },
   {
+    "id": "DDHT",
     "code": "DDHT",
     "name": "Drug Developm & Human Toxicolo"
   },
   {
+    "id": "FREN",
     "code": "FREN",
     "name": "French Language and Literature"
   },
   {
+    "id": "GISC",
     "code": "GISC",
     "name": "Geographic Infomation Science"
   },
   {
+    "id": "INTN",
     "code": "INTN",
     "name": "Professional Internship"
   },
   {
+    "id": "LAW",
     "code": "LAW",
     "name": "Law Studies"
   },
   {
+    "id": "LIBS",
     "code": "LIBS",
     "name": "Liberal Studies"
   },
   {
+    "id": "MBUS",
     "code": "MBUS",
     "name": "Executive MBA"
   },
   {
+    "id": "MEDS",
     "code": "MEDS",
     "name": "Medicine"
   },
   {
+    "id": "PATH",
     "code": "PATH",
     "name": "Pathology & Molecular Medicine"
   },
   {
+    "id": "PROF",
     "code": "PROF",
     "name": "Professional Studies"
   },
   {
+    "id": "QACS",
     "code": "QACS",
     "name": "Animal Care Service"
   },
   {
+    "id": "RELN",
     "code": "RELN",
     "name": "Religion"
   },
   {
+    "id": "RHL",
     "code": "RHL",
     "name": "Rehabilitation & Hlth Leadersh"
   },
   {
+    "id": "SOCY",
     "code": "SOCY",
     "name": "Sociology"
   },
   {
+    "id": "SPEC",
     "code": "SPEC",
     "name": "Special Studies"
   },
   {
+    "id": "TMED",
     "code": "TMED",
     "name": "Translational Medicine"
   },
   {
+    "id": "UNSP",
     "code": "UNSP",
     "name": "Unspecified Subject"
   },
   {
+    "id": "WMNS",
     "code": "WMNS",
     "name": "Women's Studies"
   }

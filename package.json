@@ -31,7 +31,8 @@
     "dev": "nodemon --ignore '*.json' -r esm bin/dev",
     "test": "nyc ava --serial --verbose",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "lint": "eslint src test bin/*"
+    "lint": "eslint src test bin/*",
+    "docs": "apidoc -i src/ -o docs/"
   },
   "ava": {
     "require": [

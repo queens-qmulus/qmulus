@@ -294,7 +294,7 @@ test.cb('/non-existent-id', t => {
     .get('/v1/departments/non-existent-id')
     .expect('Content-Type', /json/)
     .expect(404)
-    .expect({ error: errors.getIdError('Department', 'code') })
+    .expect({ error: errors.getIdError('Department', 'id') })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()
