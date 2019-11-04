@@ -2,11 +2,11 @@ import Department from '../model'
 
 export default async function show (req, res, next) {
   try {
-    const code = req.params.code
-    const doc = await Department.findOne({ code }, '-_id -__v').exec()
+    const id = req.params.id
+    const doc = await Department.findOne({ id }, '-_id -__v').exec()
 
     if (!doc) {
-      const error = new Error(`Department with code '${code}' does not exist.`)
+      const error = new Error(`Department with id '${id}' does not exist.`)
       error.status = 404
       return next(error)
     }

@@ -9,6 +9,39 @@ import { tokenValidator } from '../../utils/apiTokenManager'
 
 const router = express.Router()
 
+/**
+ * @api {get} /departments/ List Departments
+ * @apiName ListDepartment
+ * @apiGroup Departments
+ *
+ * @apiUse QmulusGETEndpoint
+ * @apiUse QmulusLimitOffsetSort
+ *
+ * @apiExample {curl} Example usage:
+ *   curl https://api.qmulus.io/v1/departments/?limit=50&sort=-name&token=<...>
+ *
+ * @apiSuccess {Object[]} departments Array of Department objects
+ * @apiSuccess {string} departments.id id
+ * @apiSuccess {string} departments.code Department code
+ * @apiSuccess {string} departments.name Department name
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *    HTTP/1.1 200 OK
+ *    [
+ *      {
+ *        "id": "AGHE",
+ *        "code": "AGHE",
+ *        "name": "Aging and Health"
+ *      },
+ *      {
+ *        "id": "ANAT",
+ *        "code": "ANAT",
+ *        "name": "Anatomy and Cell Biology"
+ *      },
+ *      ...
+ *    ]
+ *
+ */
 router.get('/',
   tokenValidator,
   validator.limit,
@@ -17,6 +50,38 @@ router.get('/',
   list,
 )
 
+/**
+ * @api {get} /departments/search Search Departments
+ * @apiName SearchDepartment
+ * @apiGroup Departments
+ *
+ * @apiUse QmulusGETEndpoint
+ * @apiUse QmulusLimitOffsetSort
+ *
+ * @apiParam {string} q Full text search string query
+ *
+ * @apiSuccess {Object[]} departments Array of Department objects
+ * @apiSuccess {string} departments.id id
+ * @apiSuccess {string} departments.code Department code
+ * @apiSuccess {string} departments.name Department name
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *    HTTP/1.1 200 OK
+ *    [
+ *      {
+ *        "id": "CMPE",
+ *        "code": "CMPE",
+ *        "name": "Computing in Engineering"
+ *      },
+ *      {
+ *        "id": "COCA",
+ *        "code": "COCA",
+ *        "name": "Computing & the Creative Arts"
+ *      },
+ *      ...
+ *    ]
+ *
+ */
 router.get('/search',
   tokenValidator,
   validator.query,
@@ -27,23 +92,27 @@ router.get('/search',
 )
 
 /**
- * @api {get} /departments/:code Request specifc department
+ * @api {get} /departments/:id Get specifc department
  * @apiName GetDepartment
  * @apiGroup Departments
  *
- * @apiParam {String} code Department code // TODO: provide code format example
+ * @apiUse QmulusGETEndpoint
  *
- * @apiSuccess {String} code Department code.
- * @apiSuccess {String} name Department name.
+ * @apiParam {string} :id Department id
+ *
+ * @apiSuccess {string} id id
+ * @apiSuccess {string} code Department code
+ * @apiSuccess {string} name Department name
  *
  * @apiSuccessExample {json} Success-Response:
  *    HTTP/1.1 200 OK
  *    {
- *      "code": "ASC",
- *      "name": "Arts and Sciences"
+ *      "id": "CISC",
+ *      "code": "CISC",
+ *      "name": "ComputingInformation Science"
  *    }
  *
  */
-router.get('/:code', tokenValidator, show)
+router.get('/:id', tokenValidator, show)
 
 export default router
