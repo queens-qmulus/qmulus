@@ -6,6 +6,7 @@ import morgan from 'morgan'
 // import apicache from 'apicache' // TODO: Remove after
 import { MongoMemoryServer } from 'mongodb-memory-server'
 import bodyParser from 'body-parser'
+import dotenv from 'dotenv'
 
 import buildings from './api/buildings'
 import courses from './api/courses'
@@ -19,6 +20,9 @@ import ingest from './api/ingest'
 import utils from './utils'
 import logger from './utils/logger'
 import { tokenValidator, getApiTokenManager } from './utils/apiTokenManager'
+
+dotenv.config()
+const IS_STAGING = process.env.IS_STAGING === 'true'
 
 const app = express()
 // const cache = apicache.middleware // TODO: Remove after
@@ -51,6 +55,13 @@ app.use(bodyParser.json())
 
 if (!test) {
   app.use(morgan(logger.morganFormat, { stream: logger.winstonStream }))
+}
+
+if (IS_STAGING) {
+  // For demo/PR review purposes, serve up the docs/ folder.
+  // In production, this isn't needed since github pages will serve the
+  // docs at docs.qmulus.io
+  app.use('/docs', express.static(`${__dirname}/../docs`))
 }
 
 // Temp loader.io verification endpoint
