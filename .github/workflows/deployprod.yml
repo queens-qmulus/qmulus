@@ -12,6 +12,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - uses: webfactory/ssh-agent@v0.1.1
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
     - name: Setup Node
       uses: actions/setup-node@v1
       with:
@@ -29,10 +33,9 @@ jobs:
 
     - name: Install pm2
       run: npm install -g pm2
+
     - name: Run pm2 production deploy script
       run: |
-        eval $(ssh-agent -s)
-        echo "$SSH_PRIVATE_KEY" | ssh-add -
         echo "Starting pm2 prod deploy"
         pm2 deploy ecosystem.config.js production
 
