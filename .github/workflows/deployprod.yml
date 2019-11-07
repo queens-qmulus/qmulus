@@ -1,0 +1,37 @@
+name: Deploy PROD
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.6.x'
+
+    - name: lint and test
+      continue-on-error: false
+      run: |
+        npm install
+        npm run lint
+        npm run build --if-present
+        npm test
+      env:
+        CI: true
+
+    - name: Install pm2
+      run: npm install -g pm2
+    - name: Run pm2 production deploy script
+      run: |
+        echo "$SSH_PRIVATE_KEY" | ssh-add -
+        echo "Starting pm2 prod deploy"
+        pm2 deploy ecosystem.config.js production
+
