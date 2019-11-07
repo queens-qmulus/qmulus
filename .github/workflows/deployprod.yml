@@ -31,6 +31,7 @@ jobs:
       run: npm install -g pm2
     - name: Run pm2 production deploy script
       run: |
+        eval $(ssh-agent -s)
         echo "$SSH_PRIVATE_KEY" | ssh-add -
         echo "Starting pm2 prod deploy"
         pm2 deploy ecosystem.config.js production
