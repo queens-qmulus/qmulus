@@ -20,10 +20,10 @@ const router = express.Router()
  * @apiExample {curl} Example usage:
  *   curl https://api.qmulus.io/v1/departments/?limit=50&sort=-name&token=<...>
  *
- * @apiSuccess {Object[]} departments Array of Department objects
- * @apiSuccess {string} departments.id id
- * @apiSuccess {string} departments.code Department code
- * @apiSuccess {string} departments.name Department name
+ * @apiSuccess {Object[]} departments Array of `Department` objects
+ * @apiSuccess {string} departments.id `Department` id
+ * @apiSuccess {string} departments.code `Department` code
+ * @apiSuccess {string} departments.name `Department` name
  *
  * @apiSuccessExample {json} Success-Response:
  *    HTTP/1.1 200 OK
@@ -60,10 +60,10 @@ router.get('/',
  *
  * @apiParam {string} q Full text search string query
  *
- * @apiSuccess {Object[]} departments Array of Department objects
- * @apiSuccess {string} departments.id id
- * @apiSuccess {string} departments.code Department code
- * @apiSuccess {string} departments.name Department name
+ * @apiSuccess {Object[]} departments Array of `Department` objects
+ * @apiSuccess {string} departments.id `Department` id
+ * @apiSuccess {string} departments.code `Department` code
+ * @apiSuccess {string} departments.name `Department` name
  *
  * @apiSuccessExample {json} Success-Response:
  *    HTTP/1.1 200 OK
@@ -92,17 +92,17 @@ router.get('/search',
 )
 
 /**
- * @api {get} /departments/:id Get specifc department
+ * @api {get} /departments/:id Get specifc Department
  * @apiName GetDepartment
  * @apiGroup Departments
  *
  * @apiUse QmulusGETEndpoint
  *
- * @apiParam {string} :id Department id
+ * @apiParam {string} :id `Department` id
  *
- * @apiSuccess {string} id id
- * @apiSuccess {string} code Department code
- * @apiSuccess {string} name Department name
+ * @apiSuccess {string} id `Department` id
+ * @apiSuccess {string} code `Department` code
+ * @apiSuccess {string} name `Department` name
  *
  * @apiSuccessExample {json} Success-Response:
  *    HTTP/1.1 200 OK
