@@ -23,6 +23,7 @@ module.exports = {
       host: ['167.172.205.165'],
       ref: 'origin/master',
       repo: 'git@github.com:queens-qmulus/qmulus.git',
+      ssh_options: 'StrictHostKeyChecking=no',
       path: '/home/deploy/qmulus',
       'post-deploy': 'npm install && pm2 reload ecosystem.config.js',
     },
