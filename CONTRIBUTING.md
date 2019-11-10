@@ -28,7 +28,7 @@ $ cd qmulus
 $ npm install
 $ npm run dev
 ```
-The last command will start a dev server at localhost:3000. The dev server should restart automaticall when you make code changes.
+The last command will start a dev server at localhost:3000. The dev server should restart automatically when you make code changes.
 
 #### env config
 Qmulus uses environment variables for configuration. To use custom env variables while running locally, create a `.env` file in the root of the repo (this will/should not get commited to the repo).
