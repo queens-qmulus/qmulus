@@ -11,7 +11,7 @@ const router = express.Router()
 
 /* eslint-disable */
 /**
- * @api {get} /departments/ List Courses
+ * @api {get} /courses/ List Courses
  * @apiName ListCourses
  * @apiGroup Courses
  *
@@ -21,7 +21,7 @@ const router = express.Router()
  * @apiExample {curl} Example usage:
  *   curl https://api.qmulus.io/v1/courses/?limit=100&sort=-department&token=<...>
  *
- * @apiSuccess {Object[]} departments Array of `Courses` objects.
+ * @apiSuccess {Object[]} course Array of `Courses` objects.
  *   See [object definition here](#api-Courses-GetCourse)
  *
  * @apiSuccessExample {json} Success-Response:
@@ -52,7 +52,7 @@ router.get('/',
 
 /* eslint-disable */
 /**
- * @api {get} /departments/ Search Courses
+ * @api {get} /courses/search Search Courses
  * @apiName SearchCourses
  * @apiGroup Courses
  *
@@ -64,8 +64,8 @@ router.get('/',
  * @apiExample {curl} Example usage:
  *   curl https://api.qmulus.io/v1/courses/search?q=Computing&limit=100&sort=-department&token=<...>
  *
- * @apiSuccess {Object[]} departments Array of found `Courses` objects.
- *   See [object definition below](#api-Courses-GetCourse)
+ * @apiSuccess {Object[]} course Array of found `Courses` objects.
+ *   See [object definition here](#api-Courses-GetCourse)
  *
  */
 /* eslint-enable */
