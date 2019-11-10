@@ -1,6 +1,294 @@
 define({ "api": [
   {
     "type": "get",
+    "url": "/buildings/:id",
+    "title": "Get specifc Building",
+    "name": "GetBuilding",
+    "group": "Buildings",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": ":id",
+            "description": "<p><code>Building</code> id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": "<p>API token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p><code>Building</code> id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p><code>Building</code> code. (Mostly a non-sensical building &quot;code&quot; listed by Queen's on their campus map)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "accessibility",
+            "description": "<p>Whether building is accessible.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>First line of street address.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "latitude",
+            "description": "<p>Geographic coordinate</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "longitude",
+            "description": "<p>Geographic coordinate</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "campus",
+            "description": "<p>Campus location. {main, west, isabel}</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "polygon",
+            "description": "<p>An array of polygon coordinates that draw out the shape of the building on a xy plane. (These are not geo latlon coordinates)</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"id\": \"goodwin\",\n  \"code\": \"GOO GOODWN\",\n  \"accessibility\": true,\n  \"name\": \"Goodwin Hall\",\n  \"address\": \"25 Union Street\",\n  \"latitude\": 44.227872,\n  \"longitude\": -76.492363,\n  \"campus\": \"main\",\n  \"polygon\": [[652,234], [651,239], [649,239], ...]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/buildings/index.js",
+    "groupTitle": "Buildings",
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "403TokenError",
+            "description": "<p>API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 403 Forbidden\n{\n  \"status\": 403,\n  \"message\": \"API Token Invalid. ...\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "get",
+    "url": "/buildings",
+    "title": "List Buildings",
+    "name": "ListBuildings",
+    "group": "Buildings",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "building",
+            "description": "<p>Array of <code>Building</code> objects. See <a href=\"#api-Buildings-GetBuilding\">object definition here</a></p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/buildings/index.js",
+    "groupTitle": "Buildings",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": "<p>API token</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "size": "1-100",
+            "optional": true,
+            "field": "limit",
+            "defaultValue": "20",
+            "description": "<p>Number of items in the response</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": true,
+            "field": "offset",
+            "description": "<p>Used in conjuction with <code>limit</code> to fetch paginated results</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "sort",
+            "description": "<p>Sorting string query (used by mongo)</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "403TokenError",
+            "description": "<p>API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 403 Forbidden\n{\n  \"status\": 403,\n  \"message\": \"API Token Invalid. ...\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "get",
+    "url": "/buildings/search",
+    "title": "Search Buildings",
+    "name": "SearchBuildings",
+    "group": "Buildings",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "q",
+            "description": "<p>Full text search string query</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": "<p>API token</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "size": "1-100",
+            "optional": true,
+            "field": "limit",
+            "defaultValue": "20",
+            "description": "<p>Number of items in the response</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": true,
+            "field": "offset",
+            "description": "<p>Used in conjuction with <code>limit</code> to fetch paginated results</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "sort",
+            "description": "<p>Sorting string query (used by mongo)</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl https://api.qmulus.io/v1/buildings/search?q=goodwin&limit=100&sort=-department&token=<...>",
+        "type": "curl"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "departments",
+            "description": "<p>Array of found <code>Building</code> objects. See <a href=\"#api-Buildings-GetBuilding\">object definition here</a></p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/buildings/index.js",
+    "groupTitle": "Buildings",
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "403TokenError",
+            "description": "<p>API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 403 Forbidden\n{\n  \"status\": 403,\n  \"message\": \"API Token Invalid. ...\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "get",
     "url": "/courses/:id",
     "title": "Get specifc Course",
     "name": "GetCourse",
@@ -315,7 +603,7 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/departments/",
+    "url": "/courses/",
     "title": "List Courses",
     "name": "ListCourses",
     "group": "Courses",
@@ -333,7 +621,7 @@ define({ "api": [
             "group": "Success 200",
             "type": "Object[]",
             "optional": false,
-            "field": "departments",
+            "field": "course",
             "description": "<p>Array of <code>Courses</code> objects. See <a href=\"#api-Courses-GetCourse\">object definition here</a></p>"
           }
         ]
@@ -407,7 +695,7 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/departments/",
+    "url": "/courses/search",
     "title": "Search Courses",
     "name": "SearchCourses",
     "group": "Courses",
@@ -468,8 +756,8 @@ define({ "api": [
             "group": "Success 200",
             "type": "Object[]",
             "optional": false,
-            "field": "departments",
-            "description": "<p>Array of found <code>Courses</code> objects. See <a href=\"#api-Courses-GetCourse\">object definition below</a></p>"
+            "field": "course",
+            "description": "<p>Array of found <code>Courses</code> objects. See <a href=\"#api-Courses-GetCourse\">object definition here</a></p>"
           }
         ]
       }
@@ -600,28 +888,28 @@ define({ "api": [
             "group": "Success 200",
             "type": "Object[]",
             "optional": false,
-            "field": "departments",
+            "field": "department",
             "description": "<p>Array of <code>Department</code> objects</p>"
           },
           {
             "group": "Success 200",
             "type": "string",
             "optional": false,
-            "field": "departments.id",
+            "field": "department.id",
             "description": "<p><code>Department</code> id</p>"
           },
           {
             "group": "Success 200",
             "type": "string",
             "optional": false,
-            "field": "departments.code",
+            "field": "department.code",
             "description": "<p><code>Department</code> code</p>"
           },
           {
             "group": "Success 200",
             "type": "string",
             "optional": false,
-            "field": "departments.name",
+            "field": "department.name",
             "description": "<p><code>Department</code> name</p>"
           }
         ]
@@ -749,28 +1037,28 @@ define({ "api": [
             "group": "Success 200",
             "type": "Object[]",
             "optional": false,
-            "field": "departments",
+            "field": "department",
             "description": "<p>Array of <code>Department</code> objects</p>"
           },
           {
             "group": "Success 200",
             "type": "string",
             "optional": false,
-            "field": "departments.id",
+            "field": "department.id",
             "description": "<p><code>Department</code> id</p>"
           },
           {
             "group": "Success 200",
             "type": "string",
             "optional": false,
-            "field": "departments.code",
+            "field": "department.code",
             "description": "<p><code>Department</code> code</p>"
           },
           {
             "group": "Success 200",
             "type": "string",
             "optional": false,
-            "field": "departments.name",
+            "field": "department.name",
             "description": "<p><code>Department</code> name</p>"
           }
         ]
