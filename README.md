@@ -9,29 +9,30 @@ Qmulus is a publically accessible, open API that provides access to datasets rel
 ## Using the API
 The REST API can be accessed using `GET` calls to the following base endpoint url: `https://api.qmulus.io/v1/`
 
-For example:
+Here's a quick example:
 ```
-$ curl https://api.qmulus.io/v1/courses/CISC124
+$ curl "https://api.qmulus.io/v1/courses/CISC-124?token=..."
 {
+  "id": "CISC-124",
   "department": "CISC",
   "course_code": "124",
   "course_name": "Introduction to Computing Science II",
   "campus": "Main",
-  "description": "Introduction to object-oriented design, architecture, and ...",
+  "description": "Introduction to object-oriented design...",
   "grading_basis": "Graded",
   "course_components": {
     "laboratory": "Required",
     "lecture": "Required"
   },
-  "requirements": "Prerequisite C- in CISC121 \nCorequisite CISC102 or MATH111 ...",
-  "academic_level": "Undergraduate",
+  "requirements": "Prerequisite C- in CISC121 or ...",
+  "academic_level": "Undergraduate Online",
   "academic_group": "Faculty of Arts and Science",
   "academic_org": "School of Computing",
   "units": 3,
   ...
 }
 ```
-Try out the API at our docs site: [https://docs.qmulus.io](https://docs.qmulus.io)
+Take a look at our docs at: [https://docs.qmulus.io](https://docs.qmulus.io)
 
 ## Documentation
 Please see the documentation with details for all endpoints here: [https://docs.qmulus.io](https://docs.qmulus.io)
