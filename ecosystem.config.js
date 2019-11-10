@@ -1,3 +1,5 @@
+const QMULUS_CA_01 = '68.183.192.147'
+
 module.exports = {
   apps: [{
     name: 'qmulus',
@@ -20,7 +22,7 @@ module.exports = {
   deploy: {
     production: {
       user: 'deploy',
-      host: ['167.172.205.165'],
+      host: [QMULUS_CA_01],
       ref: 'origin/master',
       repo: 'git@github.com:queens-qmulus/qmulus.git',
       ssh_options: 'StrictHostKeyChecking=no',
