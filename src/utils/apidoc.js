@@ -4,14 +4,8 @@
  *
  * @apiParam {string} token API token
 
- * @apiError 403TokenError API token invalid or missing.
+ * @apiError 403 Forbidden. API token invalid or missing.
  *   Sign up at [https://manage.qmulus.io/token](https://manage.qmulus.io/token)
- * @apiErrorExample Error-Response:
- *     HTTP/1.1 403 Forbidden
- *     {
- *       "status": 403,
- *       "message": "API Token Invalid. ..."
- *     }
  */
 
 /**

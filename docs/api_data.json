@@ -79,7 +79,7 @@
           },
           {
             "group": "Success 200",
-            "type": "Array",
+            "type": "Number[][]",
             "optional": false,
             "field": "polygon",
             "description": "<p>An array of polygon coordinates that draw out the shape of the building on a xy plane. (These are not geo latlon coordinates)</p>"
@@ -103,18 +103,11 @@
           {
             "group": "Error 4xx",
             "optional": false,
-            "field": "403TokenError",
-            "description": "<p>API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
+            "field": "403",
+            "description": "<p>Forbidden. API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
           }
         ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 403 Forbidden\n{\n  \"status\": 403,\n  \"message\": \"API Token Invalid. ...\"\n}",
-          "type": "json"
-        }
-      ]
+      }
     }
   },
   {
@@ -123,6 +116,13 @@
     "title": "List Buildings",
     "name": "ListBuildings",
     "group": "Buildings",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl https://api.qmulus.io/v1/buildings?limit=100&offset=200&limit=100&&token=<...>",
+        "type": "curl"
+      }
+    ],
     "success": {
       "fields": {
         "Success 200": [
@@ -181,18 +181,11 @@
           {
             "group": "Error 4xx",
             "optional": false,
-            "field": "403TokenError",
-            "description": "<p>API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
+            "field": "403",
+            "description": "<p>Forbidden. API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
           }
         ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 403 Forbidden\n{\n  \"status\": 403,\n  \"message\": \"API Token Invalid. ...\"\n}",
-          "type": "json"
-        }
-      ]
+      }
     }
   },
   {
@@ -247,7 +240,7 @@
     "examples": [
       {
         "title": "Example usage:",
-        "content": "curl https://api.qmulus.io/v1/buildings/search?q=goodwin&limit=100&sort=-department&token=<...>",
+        "content": "curl https://api.qmulus.io/v1/buildings/search?q=goodwin&limit=100&token=<...>",
         "type": "curl"
       }
     ],
@@ -273,18 +266,11 @@
           {
             "group": "Error 4xx",
             "optional": false,
-            "field": "403TokenError",
-            "description": "<p>API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
+            "field": "403",
+            "description": "<p>Forbidden. API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
           }
         ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 403 Forbidden\n{\n  \"status\": 403,\n  \"message\": \"API Token Invalid. ...\"\n}",
-          "type": "json"
-        }
-      ]
+      }
     }
   },
   {
@@ -587,18 +573,11 @@
           {
             "group": "Error 4xx",
             "optional": false,
-            "field": "403TokenError",
-            "description": "<p>API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
+            "field": "403",
+            "description": "<p>Forbidden. API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
           }
         ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 403 Forbidden\n{\n  \"status\": 403,\n  \"message\": \"API Token Invalid. ...\"\n}",
-          "type": "json"
-        }
-      ]
+      }
     }
   },
   {
@@ -679,18 +658,11 @@
           {
             "group": "Error 4xx",
             "optional": false,
-            "field": "403TokenError",
-            "description": "<p>API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
+            "field": "403",
+            "description": "<p>Forbidden. API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
           }
         ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 403 Forbidden\n{\n  \"status\": 403,\n  \"message\": \"API Token Invalid. ...\"\n}",
-          "type": "json"
-        }
-      ]
+      }
     }
   },
   {
@@ -771,18 +743,11 @@
           {
             "group": "Error 4xx",
             "optional": false,
-            "field": "403TokenError",
-            "description": "<p>API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
+            "field": "403",
+            "description": "<p>Forbidden. API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
           }
         ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 403 Forbidden\n{\n  \"status\": 403,\n  \"message\": \"API Token Invalid. ...\"\n}",
-          "type": "json"
-        }
-      ]
+      }
     }
   },
   {
@@ -854,18 +819,11 @@
           {
             "group": "Error 4xx",
             "optional": false,
-            "field": "403TokenError",
-            "description": "<p>API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
+            "field": "403",
+            "description": "<p>Forbidden. API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
           }
         ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 403 Forbidden\n{\n  \"status\": 403,\n  \"message\": \"API Token Invalid. ...\"\n}",
-          "type": "json"
-        }
-      ]
+      }
     }
   },
   {
@@ -967,18 +925,11 @@
           {
             "group": "Error 4xx",
             "optional": false,
-            "field": "403TokenError",
-            "description": "<p>API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
+            "field": "403",
+            "description": "<p>Forbidden. API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
           }
         ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 403 Forbidden\n{\n  \"status\": 403,\n  \"message\": \"API Token Invalid. ...\"\n}",
-          "type": "json"
-        }
-      ]
+      }
     }
   },
   {
@@ -1080,18 +1031,342 @@
           {
             "group": "Error 4xx",
             "optional": false,
-            "field": "403TokenError",
-            "description": "<p>API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
+            "field": "403",
+            "description": "<p>Forbidden. API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "get",
+    "url": "/textbooks/:id",
+    "title": "Get specifc Textbook",
+    "name": "GetTextbook",
+    "group": "Textbooks",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": ":id",
+            "description": "<p><code>Textbook</code> id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": "<p>API token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p><code>Textbook</code> id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "field": "authors",
+            "description": "<p>List of author names.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "isbn_10",
+            "description": "<p>10 digit ISBN</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "isbn_13",
+            "description": "<p>13 digit ISBN</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "title",
+            "description": "<p>Textbook title</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": true,
+            "field": "image",
+            "description": "<p>Book cover image link</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "price_new",
+            "description": "<p>Cost to purchase new</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": true,
+            "field": "price_old",
+            "description": "<p>Cost to purchase used (if available)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "allowedValues": [
+              "REQUIRED",
+              "RECOMMENDED"
+            ],
+            "optional": false,
+            "field": "status",
+            "description": "<p>Status of book for course</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "courses",
+            "description": "<p>Array of courses that require/recommend this book</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "course.year",
+            "description": "<p>School year</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "allowedValues": [
+              "Fall",
+              "Winter"
+            ],
+            "optional": false,
+            "field": "course.term",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "course.department",
+            "description": "<p>Can be used to reference <code>Course</code>.<code>department</code> field</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "course.course_code",
+            "description": "<p>Can be used to reference <code>Course</code>.<code>course_code</code> field</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "course.url",
+            "description": "<p>Queen's bookstore search url</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "course.instructor",
+            "description": "<p>Course instructor</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 403 Forbidden\n{\n  \"status\": 403,\n  \"message\": \"API Token Invalid. ...\"\n}",
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"authors\": [\n    \"Dingel\"\n  ],\n  \"id\": \"88880095043\",\n  \"isbn_10\": null,\n  \"isbn_13\": \"88880095043\",\n  \"title\": \"CISC/CMPE422 Course Reader\",\n  \"image\": \"\",\n  \"price_new\": 15.25,\n  \"price_used\": null,\n  \"status\": \"REQUIRED\",\n  \"courses\": [\n    {\n      \"year\": \"2019\",\n      \"term\": \"Fall\",\n      \"department\": \"CISC\",\n      \"course_code\": \"422\",\n      \"url\": \"https://www.campusbookstore.com/textbooks/search-engine/results?Course=CISCB04242\",\n      \"instructor\": \"Juergen Dingel\"\n    },\n    {\n      \"year\": \"2019\",\n      \"term\": \"Fall\",\n      \"department\": \"CMPE\",\n      \"course_code\": \"422\",\n      \"url\": \"https://www.campusbookstore.com/textbooks/search-engine/results?Course=CMPEB04243\",\n      \"instructor\": \"Juergen Dingel\"\n    }\n  ]\n}",
           "type": "json"
         }
       ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/textbooks/index.js",
+    "groupTitle": "Textbooks",
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "403",
+            "description": "<p>Forbidden. API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "get",
+    "url": "/textbooks",
+    "title": "List Textbooks",
+    "name": "ListTextbooks",
+    "group": "Textbooks",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "textbook",
+            "description": "<p>Array of <code>Textbook</code> objects. See <a href=\"#api-Textbooks-GetTextbook\">object definition here</a></p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/textbooks/index.js",
+    "groupTitle": "Textbooks",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": "<p>API token</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "size": "1-100",
+            "optional": true,
+            "field": "limit",
+            "defaultValue": "20",
+            "description": "<p>Number of items in the response</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": true,
+            "field": "offset",
+            "description": "<p>Used in conjuction with <code>limit</code> to fetch paginated results</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "sort",
+            "description": "<p>Sorting string query (used by mongo)</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "403",
+            "description": "<p>Forbidden. API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "get",
+    "url": "/textbooks/search",
+    "title": "Search Textbooks",
+    "name": "SearchTextbooks",
+    "group": "Textbooks",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "q",
+            "description": "<p>Full text search string query</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": "<p>API token</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "size": "1-100",
+            "optional": true,
+            "field": "limit",
+            "defaultValue": "20",
+            "description": "<p>Number of items in the response</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": true,
+            "field": "offset",
+            "description": "<p>Used in conjuction with <code>limit</code> to fetch paginated results</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "sort",
+            "description": "<p>Sorting string query (used by mongo)</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl https://api.qmulus.io/v1/textbooks/search?q=CISC&sort=-title&token=<...>",
+        "type": "curl"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "departments",
+            "description": "<p>Array of found <code>Textbook</code> objects. See <a href=\"#api-Textbooks-GetTextbook\">object definition here</a></p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/textbooks/index.js",
+    "groupTitle": "Textbooks",
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "403",
+            "description": "<p>Forbidden. API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
+          }
+        ]
+      }
     }
   }
 ]

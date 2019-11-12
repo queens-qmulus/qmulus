@@ -294,7 +294,6 @@ test.cb('/non-existent-id', t => {
     .get('/v1/textbooks/non-existent-id')
     .expect('Content-Type', /json/)
     .expect(404)
-    .expect({ error: errors.getIdError('Textbook', 'ISBN') })
     .end((err, res) => {
       if (err) t.fail(err.message)
       t.pass()

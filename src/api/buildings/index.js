@@ -18,6 +18,9 @@ const router = express.Router()
  * @apiUse QmulusGETEndpoint
  * @apiUse QmulusLimitOffsetSort
  *
+ * @apiExample {curl} Example usage:
+ *   curl https://api.qmulus.io/v1/buildings?limit=100&offset=200&limit=100&&token=<...>
+ *
  * @apiSuccess {Object[]} building Array of `Building` objects.
  *   See [object definition here](#api-Buildings-GetBuilding)
  *
@@ -43,7 +46,7 @@ router.get('/',
  * @apiParam {string} q Full text search string query
  *
  * @apiExample {curl} Example usage:
- *   curl https://api.qmulus.io/v1/buildings/search?q=goodwin&limit=100&sort=-department&token=<...>
+ *   curl https://api.qmulus.io/v1/buildings/search?q=goodwin&limit=100&token=<...>
  *
  * @apiSuccess {Object[]} departments Array of found `Building` objects.
  *   See [object definition here](#api-Buildings-GetBuilding)
@@ -76,7 +79,7 @@ router.get('/search',
  * @apiSuccess {number} latitude Geographic coordinate
  * @apiSuccess {number} longitude Geographic coordinate
  * @apiSuccess {string} campus Campus location. {main, west, isabel}
- * @apiSuccess {Array} polygon An array of polygon coordinates that draw out the shape of the building on a xy plane. (These are not geo latlon coordinates)
+ * @apiSuccess {Number[][]} polygon An array of polygon coordinates that draw out the shape of the building on a xy plane. (These are not geo latlon coordinates)
  *
  * @apiSuccessExample {json} Success-Response:
  *    HTTP/1.1 200 OK
