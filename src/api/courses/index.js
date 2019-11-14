@@ -127,8 +127,7 @@ router.get('/search',
  * @apiSuccess {String} add_consent Specific requirements for adding the course.
  * @apiSuccess {String} drop_consent Specific requirements for dropping
  *   the course.
- * @apiSuccess {String} academic_level Options: "Undergraduate", "Graduate",
- *   "Undergraduate Online", "Non-Credit"
+ * @apiSuccess {String=Undergraduate,Graduate,Undergraduate Online,Non-Credit} academic_level
  * @apiSuccess {String} academic_group Faculty group. Ex: Faculty of Arts
  *   and Science, Faculty of Law, School of Graduate Studies
  * @apiSuccess {String} academic_org School or Department. Ex: School of
