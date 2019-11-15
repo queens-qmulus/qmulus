@@ -28,7 +28,8 @@ const showAvailableUrls = (req, res, next) => {
     buildingsUrl: `${url}/buildings`,
     coursesUrl: `${url}/courses`,
     departmentsUrl: `${url}/departments`,
-    newsUrl: `${url}/news`,
+    // TODO: re-enable news once we have the datasets
+    // newsUrl: `${url}/news`,
     sectionsUrl: `${url}/sections`,
     textbooksUrl: `${url}/textbooks`,
   })
