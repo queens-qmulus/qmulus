@@ -26,23 +26,23 @@ const IS_STAGING = process.env.IS_STAGING === 'true'
 
 const app = express()
 // const cache = apicache.middleware // TODO: Remove after
-const test = process.argv.join().match('/ava/')
+const IS_TEST = process.argv.join().match('/ava/')
 const MONGO_URI = process.env.QMULUS_MONGO_URI ||
  'mongodb://localhost:27017/qmulus'
 const { version, showAvailableUrls, checkRateLimit, rateLimiter } = utils
 
-if (test) {
+if (IS_TEST) {
   const mongoServer = new MongoMemoryServer()
   mongoServer.getConnectionString().then((inMemUri) => {
     mongoose.connect(inMemUri, { useNewUrlParser: true }, err => {
       if (err) throw new Error('Connection failed')
-      if (!test) logger.info('Connected to database')
+      if (!IS_TEST) logger.info('Connected to database')
     })
   })
 } else {
   mongoose.connect(MONGO_URI, { useNewUrlParser: true }, err => {
     if (err) throw new Error('Connection failed')
-    if (!test) logger.info('Connected to database')
+    if (!IS_TEST) logger.info('Connected to database')
   })
 }
 
@@ -53,7 +53,7 @@ app.use(compression())
 app.use(rateLimiter)
 app.use(bodyParser.json())
 
-if (!test) {
+if (!IS_TEST) {
   app.use(morgan(logger.morganFormat, { stream: logger.winstonStream }))
 }
 
@@ -82,6 +82,17 @@ app.use(`/${version}/departments`, departments)
 app.use(`/${version}/news`, news)
 app.use(`/${version}/sections`, sections)
 app.use(`/${version}/textbooks`, textbooks)
+
+app.get('/', (_, res) => {
+  res.send(
+    'Please use /v1 endpoint. For more information, visit https://qmulus.io')
+})
+
+// For automated status checks (load balancer heath checks)
+app.get('/status', (_, res) => {
+  // TODO: report more service details
+  res.json({ message: 'Service is up!' })
+})
 
 // Error handlers
 app.use((req, res, next) => {
