@@ -7,6 +7,7 @@ import morgan from 'morgan'
 import { MongoMemoryServer } from 'mongodb-memory-server'
 import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
+import forceHttps from 'express-force-https'
 
 import buildings from './api/buildings'
 import courses from './api/courses'
@@ -23,6 +24,7 @@ import { tokenValidator, getApiTokenManager } from './utils/apiTokenManager'
 
 dotenv.config()
 const IS_STAGING = process.env.IS_STAGING === 'true'
+const FORCE_HTTPS = process.env.FORCE_HTTPS === 'true'
 
 const app = express()
 // const cache = apicache.middleware // TODO: Remove after
@@ -47,6 +49,9 @@ if (IS_TEST) {
 }
 
 // Third-party middleware
+if (FORCE_HTTPS) {
+  app.use(forceHttps)
+}
 app.use(helmet())
 app.use(compression())
 // app.use(cache('5 minutes')) // TODO: Remove after
