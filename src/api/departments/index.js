@@ -3,11 +3,22 @@ import express from 'express'
 import list from './routes/list'
 import search from './routes/search'
 import show from './routes/show'
+import Department from './model'
 
+import { createGenericQueryParser } from '../../utils/genericQuery'
 import validator from '../../utils/validator'
 import { tokenValidator } from '../../utils/apiTokenManager'
 
 const router = express.Router()
+
+// TODO: docs for query endpoint
+router.get('/query',
+  tokenValidator,
+  validator.limit,
+  validator.offset,
+  validator.sort,
+  createGenericQueryParser(Department),
+)
 
 /**
  * @api {get} /departments/ List Departments
