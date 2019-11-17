@@ -25,8 +25,13 @@ import { getApiTokenManager } from './utils/apiTokenManager'
 dotenv.config()
 const IS_STAGING = process.env.IS_STAGING === 'true'
 const FORCE_HTTPS = process.env.FORCE_HTTPS === 'true'
+const LOAD_BALANCER = process.env.LOAD_BALANCER === 'true'
 
 const app = express()
+if (LOAD_BALANCER) {
+  app.enable('trust proxy')
+}
+
 // const cache = apicache.middleware // TODO: Remove after
 const IS_TEST = process.argv.join().match('/ava/')
 const MONGO_URI = process.env.QMULUS_MONGO_URI ||
