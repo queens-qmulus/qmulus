@@ -27,6 +27,7 @@ module.exports = {
       repo: 'git@github.com:queens-qmulus/qmulus.git',
       ssh_options: 'StrictHostKeyChecking=no',
       path: '/home/deploy/qmulus',
+      'pre-deploy': 'git reset --hard',
       'post-deploy': 'npm install && pm2 reload ecosystem.config.js',
     },
   },
