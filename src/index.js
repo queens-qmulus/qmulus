@@ -20,7 +20,7 @@ import ingest from './api/ingest'
 
 import utils from './utils'
 import logger from './utils/logger'
-import { tokenValidator, getApiTokenManager } from './utils/apiTokenManager'
+import { getApiTokenManager } from './utils/apiTokenManager'
 
 dotenv.config()
 const IS_STAGING = process.env.IS_STAGING === 'true'
@@ -31,7 +31,7 @@ const app = express()
 const IS_TEST = process.argv.join().match('/ava/')
 const MONGO_URI = process.env.QMULUS_MONGO_URI ||
  'mongodb://localhost:27017/qmulus'
-const { version, showAvailableUrls, checkRateLimit, rateLimiter } = utils
+const { version, showAvailableUrls } = utils
 
 if (IS_TEST) {
   const mongoServer = new MongoMemoryServer()
@@ -55,7 +55,7 @@ if (FORCE_HTTPS) {
 app.use(helmet())
 app.use(compression())
 // app.use(cache('5 minutes')) // TODO: Remove after
-app.use(rateLimiter)
+// app.use(rateLimiter)
 app.use(bodyParser.json())
 
 if (!IS_TEST) {
@@ -78,7 +78,7 @@ app.use('/ingest', ingest)
 
 // Informational API endpoints
 app.get(`/${version}`, showAvailableUrls)
-app.get(`/${version}/rate_limit`, tokenValidator, checkRateLimit)
+// app.get(`/${version}/rate_limit`, tokenValidator, checkRateLimit)
 
 // API routes
 app.use(`/${version}/buildings`, buildings)
