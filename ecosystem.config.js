@@ -23,7 +23,7 @@ module.exports = {
   deploy: {
     production: {
       user: 'deploy',
-      host: HOSTS,
+      host: HOST_IPS,
       ref: 'origin/master',
       repo: 'git@github.com:queens-qmulus/qmulus.git',
       ssh_options: 'StrictHostKeyChecking=no',
