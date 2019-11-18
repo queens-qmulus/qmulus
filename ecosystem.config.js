@@ -1,5 +1,4 @@
 const HOSTS = (process.env.PM2_HOSTS || '').split(',').map(h => h.trim()) || []
-const HOST_IPS = HOSTS.map(h => process.env[h])
 
 module.exports = {
   apps: [{
@@ -23,7 +22,7 @@ module.exports = {
   deploy: {
     production: {
       user: 'deploy',
-      host: HOST_IPS,
+      host: HOSTS,
       ref: 'origin/master',
       repo: 'git@github.com:queens-qmulus/qmulus.git',
       ssh_options: 'StrictHostKeyChecking=no',
