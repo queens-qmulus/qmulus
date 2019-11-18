@@ -35,6 +35,9 @@ jobs:
       run: npm install -g pm2
 
     - name: Run pm2 production deploy script
+      env:
+        PM2_HOSTS: ${{ secrets.PM2_HOSTS }}
+        HOST_QMULUS_TOR_01: ${{ secrets.HOST_QMULUS_TOR_01 }}
       run: |
         echo "Starting pm2 prod deploy"
         pm2 deploy ecosystem.config.js production --force
