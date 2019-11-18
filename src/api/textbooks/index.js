@@ -11,7 +11,25 @@ import { tokenValidator } from '../../utils/apiTokenManager'
 
 const router = express.Router()
 
-// TODO: docs for query endpoint
+/**
+ * @api {get} /textbooks/query Query Textbooks
+ * @apiName QueryTextbooks
+ * @apiGroup Textbooks
+ *
+ * @apiUse QmulusGETEndpoint
+ * @apiUse QmulusLimitOffsetSort
+ *
+ * @apiParam {string} [isbn_10] 10 digit ISBN
+ * @apiParam {string} [isbn_13] 13 digit ISBN
+ * @apiParam {string} [title] Textbook title
+ * @apiParam {number} [price_new] Cost to purchase new
+ * @apiParam {number} [price_old] Cost to purchase used (if available)
+ * @apiParam {string=REQUIRED, RECOMMENDED} [status] Status of book for course
+ *
+ * @apiSuccess {Object[]} textbook Array of `Textbook` objects.
+ *   See [object definition here](#api-Textbooks-GetTextbook)
+ *
+ */
 router.get('/query',
   tokenValidator,
   validator.limit,
@@ -19,6 +37,7 @@ router.get('/query',
   validator.sort,
   createGenericQueryParser(Textbook),
 )
+
 /**
  * @api {get} /textbooks List Textbooks
  * @apiName ListTextbooks

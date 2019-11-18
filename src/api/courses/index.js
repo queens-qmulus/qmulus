@@ -11,7 +11,35 @@ import { tokenValidator } from '../../utils/apiTokenManager'
 
 const router = express.Router()
 
-// TODO: docs for query endpoint
+/* eslint-disable */
+/**
+ * @api {get} /courses/query Query Course
+ * @apiName QueryCourses
+ * @apiGroup Courses
+ * @apiDescription The query endpoint can be used to find records by a specific field. For example, with `courses/query` you can
+ * fetch all `Course`s in a specific department.
+ *
+ * @apiUse QmulusGETEndpoint
+ * @apiUse QmulusLimitOffsetSort
+ *
+ * @apiParam {string} [department] `Department` code
+ * @apiParam {string} [course_code] Numeric course code
+ * @apiParam {string} [course_name] `Course` name
+ * @apiParam {string} [campus] `Course` location (Main or Bader International Study Ctr)
+ * @apiParam {string} [grading_basis] Grading details.
+ * @apiParam {String=Undergraduate,Graduate,Undergraduate Online,Non-Credit} [academic_level]
+ * @apiParam {String} [academic_group] Faculty group.
+ * @apiParam {String} [academic_org] School or Department.
+ * @apiParam {Number} [units] `Course` units.
+ *
+ * @apiExample {curl} Example usage:
+ *   curl https://api.qmulus.io/v1/courses/query?department=CISC&token=<...>
+ *
+ * @apiSuccess {Object[]} course Array of `Courses` objects.
+ *   See [object definition here](#api-Courses-GetCourse)
+ *
+ */
+/* eslint-enable */
 router.get('/query',
   tokenValidator,
   validator.limit,

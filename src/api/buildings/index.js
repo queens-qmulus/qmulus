@@ -11,7 +11,32 @@ import { tokenValidator } from '../../utils/apiTokenManager'
 
 const router = express.Router()
 
-// TODO: docs for query endpoint
+/* eslint-disable */
+/**
+ * @api {get} /buildings/query Query Buildings
+ * @apiName QueryBuildings
+ * @apiGroup Buildings
+ * @apiDescription The query endpoint can be used to find records by a specific field. For example, with `buildings/query` you can
+ * fetch all `Building`s on "main" campus.
+ *
+ * @apiUse QmulusGETEndpoint
+ * @apiUse QmulusLimitOffsetSort
+ *
+ * @apiParam {string} [code] `Building` code. (Mostly a non-sensical building "code" listed by Queen's on their campus map)
+ * @apiParam {Boolean} [accessibility] Whether building is accessible.
+ * @apiParam {string} [name] First line of street address.
+ * @apiParam {number} [latitude] Geographic coordinate
+ * @apiParam {number} [longitude] Geographic coordinate
+ * @apiParam {string} [campus] Campus location. {main, west, isabel}
+ *
+ * @apiExample {curl} Example usage:
+ *   curl https://api.qmulus.io/v1/buildings/query?campus=main&token=<...>
+ *
+ * @apiSuccess {Object[]} building Array of `Building` objects.
+ *   See [object definition here](#api-Buildings-GetBuilding)
+ *
+ */
+/* eslint-enable */
 router.get('/query',
   tokenValidator,
   validator.limit,
@@ -30,7 +55,7 @@ router.get('/query',
  * @apiUse QmulusLimitOffsetSort
  *
  * @apiExample {curl} Example usage:
- *   curl https://api.qmulus.io/v1/buildings?limit=100&offset=200&limit=100&&token=<...>
+ *   curl https://api.qmulus.io/v1/buildings?limit=100&offset=200&token=<...>
  *
  * @apiSuccess {Object[]} building Array of `Building` objects.
  *   See [object definition here](#api-Buildings-GetBuilding)
@@ -86,7 +111,8 @@ router.get('/search',
  * @apiSuccess {string} id `Building` id
  * @apiSuccess {string} code `Building` code. (Mostly a non-sensical building "code" listed by Queen's on their campus map)
  * @apiSuccess {Boolean} accessibility Whether building is accessible.
- * @apiSuccess {string} name First line of street address.
+ * @apiSuccess {string} address First line of street address.
+ * @apiSuccess {string} name Name of `Building`
  * @apiSuccess {number} latitude Geographic coordinate
  * @apiSuccess {number} longitude Geographic coordinate
  * @apiSuccess {string} campus Campus location. {main, west, isabel}

@@ -53,8 +53,15 @@ define({ "api": [
             "group": "Success 200",
             "type": "string",
             "optional": false,
-            "field": "name",
+            "field": "address",
             "description": "<p>First line of street address.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Name of <code>Building</code></p>"
           },
           {
             "group": "Success 200",
@@ -119,7 +126,7 @@ define({ "api": [
     "examples": [
       {
         "title": "Example usage:",
-        "content": "curl https://api.qmulus.io/v1/buildings?limit=100&offset=200&limit=100&&token=<...>",
+        "content": "curl https://api.qmulus.io/v1/buildings?limit=100&offset=200&token=<...>",
         "type": "curl"
       }
     ],
@@ -175,6 +182,127 @@ define({ "api": [
         ]
       }
     },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "403",
+            "description": "<p>Forbidden. API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "get",
+    "url": "/buildings/query",
+    "title": "Query Buildings",
+    "name": "QueryBuildings",
+    "group": "Buildings",
+    "description": "<p>The query endpoint can be used to find records by a specific field. For example, with <code>buildings/query</code> you can fetch all <code>Building</code>s on &quot;main&quot; campus.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "code",
+            "description": "<p><code>Building</code> code. (Mostly a non-sensical building &quot;code&quot; listed by Queen's on their campus map)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": true,
+            "field": "accessibility",
+            "description": "<p>Whether building is accessible.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "name",
+            "description": "<p>First line of street address.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": true,
+            "field": "latitude",
+            "description": "<p>Geographic coordinate</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": true,
+            "field": "longitude",
+            "description": "<p>Geographic coordinate</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "campus",
+            "description": "<p>Campus location. {main, west, isabel}</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": "<p>API token</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "size": "1-100",
+            "optional": true,
+            "field": "limit",
+            "defaultValue": "20",
+            "description": "<p>Number of items in the response</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": true,
+            "field": "offset",
+            "description": "<p>Used in conjuction with <code>limit</code> to fetch paginated results</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "sort",
+            "description": "<p>Sorting string query (used by mongo)</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl https://api.qmulus.io/v1/buildings/query?campus=main&token=<...>",
+        "type": "curl"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "building",
+            "description": "<p>Array of <code>Building</code> objects. See <a href=\"#api-Buildings-GetBuilding\">object definition here</a></p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/buildings/index.js",
+    "groupTitle": "Buildings",
     "error": {
       "fields": {
         "Error 4xx": [
@@ -659,6 +787,155 @@ define({ "api": [
         ]
       }
     },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "403",
+            "description": "<p>Forbidden. API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "get",
+    "url": "/courses/query",
+    "title": "Query Course",
+    "name": "QueryCourses",
+    "group": "Courses",
+    "description": "<p>The query endpoint can be used to find records by a specific field. For example, with <code>courses/query</code> you can fetch all <code>Course</code>s in a specific department.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "department",
+            "description": "<p><code>Department</code> code</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "course_code",
+            "description": "<p>Numeric course code</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "course_name",
+            "description": "<p><code>Course</code> name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "campus",
+            "description": "<p><code>Course</code> location (Main or Bader International Study Ctr)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "grading_basis",
+            "description": "<p>Grading details.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "Undergraduate",
+              "Graduate",
+              "Undergraduate",
+              "Online",
+              "Non-Credit"
+            ],
+            "optional": true,
+            "field": "academic_level",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "academic_group",
+            "description": "<p>Faculty group.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "academic_org",
+            "description": "<p>School or Department.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": true,
+            "field": "units",
+            "description": "<p><code>Course</code> units.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": "<p>API token</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "size": "1-100",
+            "optional": true,
+            "field": "limit",
+            "defaultValue": "20",
+            "description": "<p>Number of items in the response</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": true,
+            "field": "offset",
+            "description": "<p>Used in conjuction with <code>limit</code> to fetch paginated results</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "sort",
+            "description": "<p>Sorting string query (used by mongo)</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl https://api.qmulus.io/v1/courses/query?department=CISC&token=<...>",
+        "type": "curl"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "course",
+            "description": "<p>Array of <code>Courses</code> objects. See <a href=\"#api-Courses-GetCourse\">object definition here</a></p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/courses/index.js",
+    "groupTitle": "Courses",
     "error": {
       "fields": {
         "Error 4xx": [
@@ -1252,7 +1529,7 @@ define({ "api": [
             "type": "Number",
             "optional": false,
             "field": "course_sections.enrollment_capacity",
-            "description": ""
+            "description": "<p>Although these details are provided by Qmulus, they may be out of date</p>"
           },
           {
             "group": "Success 200",
@@ -1380,6 +1657,153 @@ define({ "api": [
         ]
       }
     },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "403",
+            "description": "<p>Forbidden. API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "get",
+    "url": "/sections/query",
+    "title": "Query Sections",
+    "name": "QuerySections",
+    "group": "Sections",
+    "description": "<p>The query endpoint can be used to find records by a specific field. For example, with <code>sections/query</code> you can fetch all <code>Section</code>s<code>for a specific</code>Course` or all sections that happen in the fall of a specific year.</p>",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl https://api.qmulus.io/v1/sections/query?department=CISC&course_code=124&token=<...>",
+        "type": "curl"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "year",
+            "description": "<p>Calendar year</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "Fall",
+              "Summer",
+              "Winter"
+            ],
+            "optional": true,
+            "field": "term",
+            "description": "<p>School term</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "department",
+            "description": "<p>Can be used to reference <code>Course</code>.<code>department</code> field</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "course_code",
+            "description": "<p>Can be used to reference <code>Course</code>.<code>course_code</code> field</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "course_name",
+            "description": "<p><code>Course</code> name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "units",
+            "description": "<p><code>Section</code> units</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "campus",
+            "description": "<p><code>Section</code> campus location</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "Undergraduate",
+              "Graduate",
+              "Undergraduate",
+              "Online",
+              "Non-Credit"
+            ],
+            "optional": true,
+            "field": "academic_level",
+            "description": "<p><code>Course</code> level</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": "<p>API token</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "size": "1-100",
+            "optional": true,
+            "field": "limit",
+            "defaultValue": "20",
+            "description": "<p>Number of items in the response</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": true,
+            "field": "offset",
+            "description": "<p>Used in conjuction with <code>limit</code> to fetch paginated results</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "sort",
+            "description": "<p>Sorting string query (used by mongo)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "course",
+            "description": "<p>Array of <code>Section</code> objects. See <a href=\"#api-Sections-GetSection\">object definition here</a></p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/sections/index.js",
+    "groupTitle": "Sections",
     "error": {
       "fields": {
         "Error 4xx": [
@@ -1711,6 +2135,123 @@ define({ "api": [
         ]
       }
     },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "403",
+            "description": "<p>Forbidden. API token invalid or missing. Sign up at <a href=\"https://manage.qmulus.io/token\">https://manage.qmulus.io/token</a></p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "get",
+    "url": "/textbooks",
+    "title": "Query Textbooks",
+    "name": "QueryTextbooks",
+    "group": "Textbooks",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "isbn_10",
+            "description": "<p>10 digit ISBN</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "isbn_13",
+            "description": "<p>13 digit ISBN</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "title",
+            "description": "<p>Textbook title</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": true,
+            "field": "price_new",
+            "description": "<p>Cost to purchase new</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": true,
+            "field": "price_old",
+            "description": "<p>Cost to purchase used (if available)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "REQUIRED",
+              "RECOMMENDED"
+            ],
+            "optional": true,
+            "field": "status",
+            "description": "<p>Status of book for course</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": "<p>API token</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "size": "1-100",
+            "optional": true,
+            "field": "limit",
+            "defaultValue": "20",
+            "description": "<p>Number of items in the response</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": true,
+            "field": "offset",
+            "description": "<p>Used in conjuction with <code>limit</code> to fetch paginated results</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "sort",
+            "description": "<p>Sorting string query (used by mongo)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "textbook",
+            "description": "<p>Array of <code>Textbook</code> objects. See <a href=\"#api-Textbooks-GetTextbook\">object definition here</a></p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/textbooks/index.js",
+    "groupTitle": "Textbooks",
     "error": {
       "fields": {
         "Error 4xx": [
