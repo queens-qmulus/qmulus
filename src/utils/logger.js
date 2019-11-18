@@ -86,7 +86,7 @@ const jsonFormat = (tokens, req, res) => {
     http: {
       method: tokens.method(req, res),
       url,
-      status_code: tokens.status(req, res),
+      status_code: parseInt(tokens.status(req, res)),
       url_details: {
         path,
         queryString: paramsObj,
