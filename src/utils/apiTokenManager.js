@@ -4,12 +4,10 @@ import sha256 from 'sha256'
 
 import logger from './logger'
 
-const IS_TEST = process.argv.join().match('/ava/')
 dotenv.config()
 
 const TOKEN_SERVICE_URL = `${process.env.QMULUS_MANAGEMENT_URL}/api/token`
 const INTER_SERVICE_SECRET = process.env.INTER_SERVICE_SECRET
-const TOKEN_SIGNUP_URL = `${process.env.QMULUS_MANAGEMENT_URL}/signup`
 const USAGE_REPORT_INTERVAL_S = 1 * 60
 
 let apiTokenManagerInstance
@@ -135,19 +133,5 @@ class ApiTokenManager {
 }
 
 export async function tokenValidator (req, res, next) {
-  // if (IS_TEST) 
   return next()
-  /*
-  const token = req.query.token || req.params.token
-  const isValid = token && await getApiTokenManager().use(token)
-  if (isValid) {
-    next()
-  } else {
-    res.status(403).json({
-      status: 403,
-      message: 'API Token Invalid. Please register for ' +
-      `an API token at ${TOKEN_SIGNUP_URL}`,
-    })
-  }
-  */
 }
