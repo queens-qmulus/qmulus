@@ -73,7 +73,7 @@
     "winston": "^3.2.1"
   },
   "devDependencies": {
-    "ava": "^0.25.0",
+    "ava": "^5.1.0",
     "coveralls": "^3.0.6",
     "eslint": "^6.2.2",
     "eslint-config-standard": "^14.1.0",
